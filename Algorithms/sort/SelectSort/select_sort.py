@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import sys,os
 srcpath = os.path.dirname(os.path.abspath(__file__)) + '/../../../'
 sys.path.append(srcpath)
@@ -6,9 +8,8 @@ from Algorithms.sort.base.base import Base
 
 class SelectSort(Base):
 
-    def __init__(self):
-        super().__init__()
-        self.name = '选择'
+    def __init__(self,name = "选择"):
+        super().__init__(name)
 
     def aes(self):
         for i in range(len(self.sort_arr)):

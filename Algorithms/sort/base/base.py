@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 
 class Base:
 
@@ -7,10 +7,10 @@ class Base:
 
     action_times = 0
 
-    def __init__(self):
-        self.name = '玄学'
-        print("   --- 开始进行{}排序 ---".format(self.name))
-        print("排序前的数组为: {}".format(self.sort_model))
+    def __init__(self,name = "玄学"):
+        self.name = name
+        print("    --- 开始进行 {} 排序 ---".format(self.name))
+        print("排序前的数组为: {}\n".format(self.sort_model))
 
     def less(self,a,b):
         self.action_times += 1
@@ -47,7 +47,7 @@ class Base:
 
     def show_res(self):
         print("本次操作的时间复杂度为: {}".format(self.action_times))
-        print("排序后的数组为: {}".format(self.sort_arr))
+        print("排序后的数组为: {}\n".format(self.sort_arr))
         # 重置sort_arr到排序前的状态,且保持arr和model的内存独立
         self.sort_arr = self.sort_model[:]
 
