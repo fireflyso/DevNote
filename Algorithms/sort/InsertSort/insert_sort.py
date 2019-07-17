@@ -12,7 +12,7 @@ class InsertSort(Base):
         super().__init__(name)
 
     def aes(self):
-        for i in range(len(self.sort_arr-1)):
+        for i in range(len(self.sort_arr)-1):
             j = i + 1
             if(j > 0):
                 if(self.biger(i,j)):
