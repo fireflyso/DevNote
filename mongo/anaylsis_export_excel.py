@@ -13,6 +13,7 @@ MONGO_DB_NAME = 'flow_snmp'
 db = client[MONGO_DB_NAME]
 MONGO_DB_COLLECTION = 'flow_data'
 collection = db[MONGO_DB_COLLECTION]
+
 end_time = datetime.strptime(str(datetime.now().date()), '%Y-%m-%d') + timedelta(-1)
 start_time = end_time + timedelta(-30)
 

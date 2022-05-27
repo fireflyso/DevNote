@@ -1,0 +1,59 @@
+2022-04-15 20:41:33,749 [<module>] [ERROR] - 公司信息抓取失败： [], https://www.baijingapp.com[]
+2022-04-15 20:41:33,753 [<module>] [ERROR] - Failed to parse: https://www.baijingapp.com[]
+2022-04-15 22:22:44,212 [spider] [ERROR] - 公司信息抓取失败： [] , https://www.baijingapp.com[]
+2022-04-15 22:22:44,213 [spider] [ERROR] - Failed to parse: https://www.baijingapp.com[]
+2022-04-15 22:26:08,834 [spider] [ERROR] - 公司信息抓取失败： [] , https://www.baijingapp.com[]
+2022-04-15 22:26:08,835 [spider] [ERROR] - Failed to parse: https://www.baijingapp.com[]
+2022-04-15 22:50:23,332 [spider] [ERROR] - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank, country, list, app_name, company, type, size) VALUES (1,'巴西','免费æ¦' at line 1")
+2022-04-15 22:50:23,387 [spider] [ERROR] - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank, country, list, app_name, company, type, size) VALUES (1,'巴西','免费æ¦' at line 1")
+2022-04-15 22:50:45,444 [spider] [ERROR] - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank, country, list, app_name, company, type, size) VALUES (1,'巴西','免费æ¦' at line 1")
+2022-04-15 22:51:01,374 [spider] [ERROR] - 公司信息抓取失败： 郑州卓见软件科技有限公司 , https://www.baijingapp.com/people/29461
+2022-04-15 22:51:01,375 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
+2022-04-15 22:51:01,430 [spider] [ERROR] - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank, country, list, app_name, company, type, size) VALUES (1,'阿根廷','免è´' at line 1")
+2022-04-15 22:51:01,481 [spider] [ERROR] - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank, country, list, app_name, company, type, size) VALUES (1,'阿根廷','免è´' at line 1")
+2022-04-15 22:51:19,835 [spider] [ERROR] - (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank, country, list, app_name, company, type, size) VALUES (1,'阿根廷','免è´' at line 1")
+2022-04-15 22:54:39,085 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:54:39,105 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:54:48,012 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:54:54,755 [spider] [ERROR] - 公司信息抓取失败： 杭州影笑科技有限责任公司 , https://www.baijingapp.com/people/117588
+2022-04-15 22:54:54,755 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
+2022-04-15 22:54:57,308 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:54:57,324 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:05,209 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:13,606 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:15,074 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:26,589 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:35,099 [spider] [ERROR] - 公司信息抓取失败： 杭州影笑科技有限责任公司 , https://www.baijingapp.com/people/117588
+2022-04-15 22:55:35,100 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
+2022-04-15 22:55:38,121 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:39,611 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:47,657 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:58,666 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:55:59,466 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:56:11,734 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:56:20,667 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:56:20,682 [spider] [ERROR] - (1364, "Field 'create_at' doesn't have a default value")
+2022-04-15 22:57:49,880 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 16")
+2022-04-15 22:58:03,273 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 11")
+2022-04-15 22:58:08,540 [spider] [ERROR] - 公司信息抓取失败： 北京小桔科技有限公司 , https://www.baijingapp.com/people/35373
+2022-04-15 22:58:08,541 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
+2022-04-15 22:58:27,341 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 15")
+2022-04-15 22:58:43,821 [spider] [ERROR] - 公司信息抓取失败： 杭州影笑科技有限责任公司 , https://www.baijingapp.com/people/117588
+2022-04-15 22:58:43,822 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
+2022-04-15 22:58:47,665 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 14")
+2022-04-15 22:59:11,213 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 13")
+2022-04-15 22:59:32,507 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 12")
+2022-04-15 22:59:49,392 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 18")
+2022-04-15 22:59:59,712 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 10")
+2022-04-15 23:00:00,405 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 10")
+2022-04-15 23:00:04,112 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 10")
+2022-04-15 23:00:29,828 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 17")
+2022-04-15 23:00:40,905 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 9")
+2022-04-15 23:00:41,574 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 9")
+2022-04-15 23:00:50,197 [spider] [ERROR] - (1406, "Data too long for column 'app_name' at row 9")
+2022-04-15 23:08:19,272 [spider] [ERROR] - 公司信息抓取失败： 郑州卓见软件科技有限公司 , https://www.baijingapp.com/people/29461
+2022-04-15 23:08:19,274 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
+2022-04-15 23:16:57,918 [spider] [ERROR] - 公司信息抓取失败： 上海合合信息科技股份有限公司 , https://www.baijingapp.com/people/3659
+2022-04-15 23:16:57,919 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
+2022-04-15 23:17:35,750 [spider] [ERROR] - 公司信息抓取失败： 玩美移动股份有限公司 , https://www.baijingapp.com/people/29980
+2022-04-15 23:17:35,751 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
