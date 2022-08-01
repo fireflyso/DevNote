@@ -43,8 +43,8 @@ def set_style(name, height, bold=False):
 
 row0 = ["pipe id", "时间", "入流量(M)", "出流量(M)"]
 default_style = set_style('Times New Roman', 220, True)
-start_time = '2022-04-01 00:00:00'
-end_time = '2022-05-01 00:00:00'
+start_time = '2022-06-01 00:00:00'
+end_time = '2022-07-01 00:00:00'
 index = 1
 user_dict = {
     "zhimeiwangluo": "zhimeiwangluo",
@@ -65,21 +65,24 @@ for user_id, user_name in user_dict.items():
             "end_time": end_time
         }
 
-        url = 'http://wan-flow-bps.gic.pre/bps_95'
-        res = json.loads(requests.post(url, data).content)
         try:
+            url = 'http://wan-flow-bps.gic.pre/bps_95'
+            res = json.loads(requests.post(url, data).content)
+
             value_95 = res.get('data')[0].get('value')
+
+            url = 'http://wan-flow-bps.gic.pre/max'
+            res = json.loads(requests.post(url, data).content)
+            max_value = max(res.get('data')[0].get('out_bps_max'), res.get('data')[0].get('in_bps_max'))
+            min_value = min(res.get('data')[0].get('out_bps_min'), res.get('data')[0].get('in_bps_min'))
+
+            url = 'http://wan-flow-bps.gic.pre/bps_list'
+            res = json.loads(requests.post(url, data).content)
+            avg_value = max(res.get('average')[0].get('in_bps'), res.get('average')[0].get('out_bps'))
         except:
+            print('数据解析异常：')
+            print('url : {}'.format(url))
             continue
-
-        url = 'http://wan-flow-bps.gic.pre/max'
-        res = json.loads(requests.post(url, data).content)
-        max_value = max(res.get('data')[0].get('out_bps_max'), res.get('data')[0].get('in_bps_max'))
-        min_value = min(res.get('data')[0].get('out_bps_min'), res.get('data')[0].get('in_bps_min'))
-
-        url = 'http://wan-flow-bps.gic.pre/bps_list'
-        res = json.loads(requests.post(url, data).content)
-        avg_value = max(res.get('average')[0].get('in_bps'), res.get('average')[0].get('out_bps'))
 
         sql = "SELECT size, max_size from bc_bill_resources_price where cloud_id = '{}' and end_time>now() and is_valid = 1".format(pipe_id)
         cursor.execute(sql)

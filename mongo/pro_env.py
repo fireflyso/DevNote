@@ -29,6 +29,7 @@ db = client[MONGO_DB_NAME]
 collection = db[MONGO_TABLE_NAME]
 
 list(collection.find({'pipe_id': '01b6965e-8e2c-11ec-9bc2-aaf80d791f30'}).sort([('time', 1)]).limit(10))
+list(collection.find({'pipe_id': 'c0e85938-74d1-11e6-935d-0242ac103703'}).sort([('time', -1)]).limit(3))
 start_time = datetime.strptime('2022-04-15 10:55:27', '%Y-%m-%d %H:%M:%S')
 end_time = datetime.strptime('2022-04-15 11:17:02', '%Y-%m-%d %H:%M:%S')
 query = {
@@ -80,6 +81,17 @@ for res in res_list:
 res_list = sorted(res_list, key=lambda l: l['time'])
 result = collection.insert_many(res_list)
 # print("pipe : {} insert res : {}".format(pipe_id, len(result.inserted_ids)))
+
+
+start_time = datetime.strptime('2022-05-11 07:07:05', '%Y-%m-%d %H:%M:%S')
+end_time = datetime.strptime('2022-05-11 16:37:05', '%Y-%m-%d %H:%M:%S')
+query = {
+    "pipe_id": '30aa2a22-0653-11ec-9ca9-0a0d265d6421',
+    "time": {"$lte": end_time, "$gte": start_time},
+}
+list(collection.find(query))
+# collection.remove(query)
+
 
 
 

@@ -23,6 +23,7 @@ def get_api(api, query):
     old_res = json.loads(old_res.content)
     old_data = old_res['data']
     new_res = requests.post('http://wan-flow-bps.gic.pre/{}'.format(api), query)
+    new_res.status_code
     import pdb
     pdb.set_trace()
     new_res = json.loads(new_res.content)

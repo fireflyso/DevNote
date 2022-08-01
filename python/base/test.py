@@ -1,17 +1,13 @@
+temp_set = set()
+for line in open("1006.log"):
+    temp_set.add(line.split('path')[-1][:-14])
 
-class Student:
-    # 类属性
-    count = 0
+for line in open("1007.log"):
+    temp_set.add(line.split('path')[-1][:-14])
 
-    def __init__(self, name) -> None:
-        # 实例属性
-        self.name = name
-        Student.count += 1
+one_set = set()
+for line in open("095.log"):
+    one_set.add(line.split('path')[-1][:-14])
 
-
-for i in range(10):
-    s = Student(i)
-    print('name : {}, count : {}'.format(s.name, s.count))
-
-
+print(temp_set-one_set)
 
