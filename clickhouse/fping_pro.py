@@ -71,7 +71,19 @@ avg_rtt_query = "select AVG(rtt) from f_ping.rtt_data_v3_20227 where rtt>0 and p
 avg_rtt_query = "select AVG(rtt) from f_ping.rtt_data_v3_20227 where rtt>0 and rtt<=600 and ping_time>='{}' and ping_time<'{}' and src_ip='104.166.128.58' and operator_id in (324) and node_id in (401) and trace_type=2".format(start_time, start_time + timedelta(hours=6))
 
 
-
+start_time = datetime.strptime('2022-07-27 00:00:00', '%Y-%m-%d %H:%M:%S')
+end_time = datetime.strptime('2022-07-28 00:00:00', '%Y-%m-%d %H:%M:%S')
+count = 0
+total = 0
+while start_time < end_time:
+    temp_time = start_time + timedelta(hours=1)
+    avg_rtt_query = "select AVG(rtt) from f_ping.rtt_data_v3_20227 where rtt>0 and ping_time>='{}' and ping_time<'{}' and src_ip='104.166.128.58' and operator_id in (324) and node_id in (401) and trace_type=2".format(start_time, temp_time)
+    # avg_rtt_query = "select AVG(rtt) from f_ping.rtt_data_v3_20227 where rtt>0 and rtt<=127.37 and ping_time>='{}' and ping_time<'{}' and src_ip='104.166.128.58' and operator_id in (324) and node_id in (401) and trace_type=2".format(start_time, temp_time)
+    res = client.execute(avg_rtt_query)
+    total += res[0][0]
+    count += 1
+    start_time = temp_time
+    print(start_time)
 
 
 
