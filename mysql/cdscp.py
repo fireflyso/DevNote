@@ -21,7 +21,7 @@ cursor = db.cursor()
 # sql = "INSERT INTO `cdscp`.`mn_alarm_event`(`id`, `customer_id`, `flag`, `obj_group_id`, `subject`, `content`, `detail`, `create_time`, `update_time`, `alarm_type`) VALUES ('87b54c48-96db-43af-be5a-0fceeb30e7d4', 'E036042', 1, '07cb50ba-7f46-11ec-8c13-0242ac110002', '高防ip回源带宽监控对象组“lxl-高防IP”流量告警', 'mail_content:高防ip|你好-43.227.197.71|流量异常:回源带宽超过了10Mbps的限制; message_content:高防ip|你好-43.227.197.71|流量异常:回源带宽超过了10Mbps的限制', '{\"alarm_info\": [{\"obj_alarm_detail\": [{\"max_value\": 10, \"verbose_data\": [{\"value_Mbps\": \"11Mbps\", \"value\": \"11836448bps\", \"time\": \"2021-10-08 11:50:09\"}, {\"value_Mbps\": \"11Mbps\", \"value\": \"11824144bps\", \"time\": \"2021-10-08 11:49:08\"}]}], \"obj_name\": \"\\u9ad8\\u9632\", \"obj_id\": \"2081\"}]}', '2022-01-27 18:00:19', '2022-01-27 18:00:19', 1);"
 
 
-sql = "select subinterface_id, vlan_id from automatic_product.subinterface where interface_id = '9daa14fe-6b5a-43d0-9add-1d653afae30d' and vlan_id in ('1810','2014','2025','2042','2057','2058','2062','2100','2103','2118','2126','2173','2182','2193','2194','2202','2206','2221','2282','2288','2299','2300','2305','2314','2318','2327','2336','2384','2397','2412','2429','2447','2461','2522','2527','2542','2548','2557','2565','2573','2586','2631','2640','2651','2681','2688','2697','2754','2759','2761','2825','2835','2851','2858','2862','2864','2914','2929','2939','2940','2944','2981','3006','3011','3037','3041','3061','3086','3087','3107','3115','3132','3134','3156','3163','3167','3225','3241','3255','3333','3367','3381','3406','3430','3516','3527','3528','3559','3562','3585','3601','3622','3623','3657','3659','3661','3669','3687','3709','3737','3744','3765','3770','3785','3795','3807','3810','3831','3857','3875','3878','3879','3886','3888','3890','3895','3915','3977','3980');"
+sql = "UPDATE automatic_product.route SET ip = '148.153.126.177' WHERE route_id = '25a409fa-83b7-4676-a8bd-f2ee47668cf2';"
 _ = cursor.execute(sql)
 res = cursor.fetchall()
 for r in res:
@@ -35,6 +35,10 @@ for r in res:
     print("UPDATE cdscp.cloud_pipe SET vlan_name = 'Bundle-Ether170.{}' WHERE id = '{}';".format(r[1], r[0]))
 
 
+sql = "select count(*) from cloud_task where status = 'NEW';"
+cursor.execute(sql)
+cursor.fetchall()
+sql = "UPDATE automatic_product.route SET ip = '148.153.126.177' WHERE route_id = '25a409fa-83b7-4676-a8bd-f2ee47668cf2';"
 cursor.execute(sql)
 db.commit()
 cursor.close()
