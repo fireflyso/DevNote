@@ -38,7 +38,7 @@ for r in res:
 sql = "select count(*) from cloud_task where status = 'NEW';"
 cursor.execute(sql)
 cursor.fetchall()
-sql = "UPDATE automatic_product.route SET ip = '148.153.126.177' WHERE route_id = '25a409fa-83b7-4676-a8bd-f2ee47668cf2';"
+sql = "delete from automatic_product.subinterface where subinterface_id = '00d53b2d-7ae9-4e89-98b3-d39f1fb49183';"
 cursor.execute(sql)
 db.commit()
 cursor.close()
@@ -49,3 +49,11 @@ except:
     traceback.print_exc()
 finally:
     cursor.close()
+
+
+sql_list = ["UPDATE automatic_product.subinterface SET subinterface_name = 'Bundle-Ether22.2002', interface_id = '96a90d7f-1529-4ed1-aef8-310a407bd589' WHERE subinterface_id = '26d4c8f9-2db5-4454-a2a5-03646e86cb9b';","UPDATE automatic_product.subinterface SET subinterface_name = 'Bundle-Ether22.2420', interface_id = '96a90d7f-1529-4ed1-aef8-310a407bd589' WHERE subinterface_id = '02b8fe2f-dc35-41cc-9364-6158d2f6b885';","UPDATE cdscp.cloud_pipe SET vlan_name = 'Bundle-Ether22.2002' WHERE id = '8b1f7296-eadc-11e7-a364-0242ac110002';","UPDATE cdscp.cloud_pipe SET vlan_name = 'Bundle-Ether22.2420' WHERE id = '08cfefd0-6aa0-11e7-bab8-0242ac110002';"]
+for sql in sql_list:
+    cursor.execute(sql)
+
+
+

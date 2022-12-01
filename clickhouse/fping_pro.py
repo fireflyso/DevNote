@@ -11,7 +11,8 @@ CK_PORT = 9000
 client = Client(host=CK_HOST, port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
 client = Client(host="10.13.124.35", port=CK_PORT, user=CK_USER, password=CK_PASSWORD, database=CK_DB_ANME)
 client = Client(host="10.13.124.36", port=CK_PORT, user=CK_USER, password=CK_PASSWORD, database=CK_DB_ANME)
-client = Client(host="10.13.124.37", port=CK_PORT, user=CK_USER, password=CK_PASSWORD, database=CK_DB_ANME)
+
+
 
 client.execute("SELECT time, in_bps, out_bps FROM flow_snmp.flow_data_first_all where pipe_id  = '6c6d7e6a-2375-11e9-9cc0-0242ac110002' and time >= '2021-06-30 12:30:00' and time <= '2021-06-30 16:55:00' order by time")
 
@@ -26,7 +27,7 @@ client.execute("SHOW CREATE f_ping.rtt_data_20228")
 client.execute("SHOW CREATE f_ping.rtt_data_v3_20228")
 client.execute("SELECT * FROM system.clusters")
 # 查看表中数据条数以及空间占用情况
-client.execute("SELECT sum(rows), formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts WHERE (database IN ('f_ping')) AND (table IN ('rtt_data_20227'))")
+client.execute("SELECT sum(rows), formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts WHERE (database IN ('f_ping')) AND (table IN ('rtt_data_v3_20229'))")
 
 
 
@@ -203,8 +204,16 @@ client.execute("select * from f_ping.rtt_data_v3_20228 where src_ip='148.153.78.
 
 #   法兰克福-摩洛哥 0
 client = Client(host="10.13.124.37", port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
-client.execute("select * from f_ping.rtt_data_v3_20229 where src_ip='148.153.103.2' and trace_type=2 order by ping_time desc limit 5")
+client.execute("select * from f_ping.rtt_data_v3_20229 where src_ip='148.153.103.2' and trace_type=2 limit 5")
 
+
+#   达拉斯覆盖墨西哥 2
+client = Client(host="10.13.124.36", port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
+client.execute("select * from f_ping.rtt_data_v3_202210 where src_ip='148.153.122.6' and trace_type=2 order by ping_time desc limit 5")
+
+#   达拉斯BGP 1
+client = Client(host="10.13.124.35", port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
+client.execute("select * from f_ping.rtt_data_v3_202210 where src_ip='148.153.39.154' and trace_type=2 order by ping_time desc limit 5")
 
 
 start_time = datetime.strptime('2022-07-27 00:00:00', '%Y-%m-%d %H:%M:%S')
