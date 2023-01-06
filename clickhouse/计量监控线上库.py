@@ -27,6 +27,7 @@ client.execute("SELECT pipe_id, COUNT(pipe_id) FROM flow_snmp.flow_data_local_ne
 client.execute("SHOW CREATE flow_snmp.flow_data_local_new")
 client.execute("SELECT time, in_bps, out_bps from flow_snmp.flow_data WHERE pipe_id  = '06be7cce-c55d-11e9-82db-0242ac110002' and time > '2021-06-06 12:30:00' and time < '2021-07-06 12:30:00' order by time")
 
+# 查看分区的数据分布
 client.execute("select partition, sum(rows), formatReadableSize(sum(data_uncompressed_bytes)) from system.parts where table = 'flow_data_first_local' GROUP BY partition")
 client.execute("select formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts where table = 'flow_data_local_new'")
 
@@ -71,7 +72,8 @@ for pipe in pipe_list:
 
 res = client.execute("select pipe_id, count(0) as num from flow_data where time >= '' and time < '' and pipe_id = '';")
 
-client.execute("select * from flow_snmp.flow_data where pipe_id = 'e75a82fa-b80d-11ec-9a42-22791a61f08c' and time >= '2022-04-14 16:00:00' and time < '2022-04-14 16:30:00'")
+client.execute("select * from flow_snmp.flow_data where pipe_id = '591e20f4-475f-11e9-94fa-0242ac110008' and time < '2022-12-06 16:30:00' order by time desc limit 3")
+client.execute("select * from flow_snmp.flow_data where pipe_id = '591e20f4-475f-11e9-94fa-0242ac110008' order by time desc limit 3")
 
 
 

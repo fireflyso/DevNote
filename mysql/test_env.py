@@ -1,5 +1,4 @@
 # coding=utf-8
-# 操作线上库，慎用
 import pymysql
 import traceback
 

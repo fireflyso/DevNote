@@ -1,2 +1,34 @@
-2022-04-18 17:04:31,292 [spider] [ERROR] - 公司信息抓取失败： 厦门美图网科技有限公司 , https://www.baijingapp.com/people/4095
-2022-04-18 17:04:31,295 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
+2023-01-05 16:38:28,892 [spider] [ERROR] - 分类信息抓取失败： 广州市百果园网络科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:38:28,894 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijing.cn', port=443): Read timed out. (read timeout=3)
+2023-01-05 16:38:31,979 [spider] [ERROR] - 分类信息抓取失败： 广州市百果园网络科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:38:31,979 [spider] [ERROR] - 'google'
+2023-01-05 16:38:35,898 [spider] [ERROR] - 分类信息抓取失败： 杭州影笑科技有限责任公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:38:35,898 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijing.cn', port=443): Read timed out. (read timeout=3)
+2023-01-05 16:38:41,334 [spider] [ERROR] - 分类信息抓取失败： 杭州影笑科技有限责任公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:38:41,334 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijing.cn', port=443): Read timed out. (read timeout=3)
+2023-01-05 16:38:49,718 [spider] [ERROR] - 分类信息抓取失败： 北京博乐科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:38:49,718 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijing.cn', port=443): Read timed out. (read timeout=3)
+2023-01-05 16:38:53,219 [spider] [ERROR] - 分类信息抓取失败： 广州市百果园网络科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:38:53,219 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijing.cn', port=443): Read timed out. (read timeout=3)
+2023-01-05 16:38:55,645 [spider] [ERROR] - 分类信息抓取失败： 北京龙创悦动网络科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:38:55,645 [spider] [ERROR] - 'category'
+2023-01-05 16:39:59,514 [spider] [ERROR] - 分类信息抓取失败： 广州市百果园网络科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:39:59,514 [spider] [ERROR] - 'category'
+2023-01-05 16:40:01,092 [spider] [ERROR] - 分类信息抓取失败： 北京博乐科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:01,092 [spider] [ERROR] - 'category'
+2023-01-05 16:40:02,909 [spider] [ERROR] - 分类信息抓取失败： 广州市百果园网络科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:02,909 [spider] [ERROR] - 'category'
+2023-01-05 16:40:06,607 [spider] [ERROR] - 分类信息抓取失败： 北京智明星通科技股份有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:06,607 [spider] [ERROR] - 'category'
+2023-01-05 16:40:09,185 [spider] [ERROR] - 分类信息抓取失败： 北京龙创悦动网络科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:09,186 [spider] [ERROR] - 'category'
+2023-01-05 16:40:12,425 [spider] [ERROR] - 分类信息抓取失败： 北京博乐科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:12,425 [spider] [ERROR] - 'category'
+2023-01-05 16:40:14,663 [spider] [ERROR] - 分类信息抓取失败： 深圳创酷互动信息技术有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:14,663 [spider] [ERROR] - 'category'
+2023-01-05 16:40:24,662 [spider] [ERROR] - 分类信息抓取失败： 心动网络股份有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:24,662 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijing.cn', port=443): Read timed out. (read timeout=5)
+2023-01-05 16:40:30,443 [spider] [ERROR] - 分类信息抓取失败： 上海合合信息科技股份有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:30,443 [spider] [ERROR] - 'category'
+2023-01-05 16:40:33,311 [spider] [ERROR] - 分类信息抓取失败： 成都大海怪科技有限公司 , https://www.baijing.cn/product/ajax/sidebar_product_info/
+2023-01-05 16:40:33,311 [spider] [ERROR] - 'category'

@@ -38,7 +38,7 @@ for r in res:
 sql = "select count(*) from cloud_task where status = 'NEW';"
 cursor.execute(sql)
 cursor.fetchall()
-sql = "delete from automatic_product.subinterface where subinterface_id = '00d53b2d-7ae9-4e89-98b3-d39f1fb49183';"
+sql = "UPDATE automatic_product.subinterface SET subinterface_name = 'Bundle-Ether1047.10', vlan_id = 10 WHERE subinterface_id = 'cba093eb-e4e4-444c-81cc-db441c2e0111';"
 cursor.execute(sql)
 db.commit()
 cursor.close()

@@ -8,9 +8,9 @@ CK_USER = "default"
 CK_PASSWORD = "$nM*Jgkx%DmU"
 CK_DB_ANME = "f_ping"
 CK_PORT = 9000
-client = Client(host=CK_HOST, port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
 client = Client(host="10.13.124.35", port=CK_PORT, user=CK_USER, password=CK_PASSWORD, database=CK_DB_ANME)
 client = Client(host="10.13.124.36", port=CK_PORT, user=CK_USER, password=CK_PASSWORD, database=CK_DB_ANME)
+client = Client(host="10.13.124.37", port=CK_PORT, user=CK_USER, password=CK_PASSWORD, database=CK_DB_ANME)
 
 
 

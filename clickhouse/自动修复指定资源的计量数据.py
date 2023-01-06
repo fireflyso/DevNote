@@ -32,7 +32,7 @@ FLOW_TABLE_NAME = "flow_data_local_new"
 
 # with open("pipes.txt") as file:
 #     pipe_list = [item.replace('\n', '') for item in file]
-pipe_list = ['02a533ba-63f5-11ec-81f0-6ae2afe11c1c','0dfcc7e4-00c9-11ec-bbc6-42e686a712e2','12958824-f4ee-11e9-8bb8-0242ac110002','1b76ce66-b257-11ec-8ea0-829efbb011f7','1db3f74c-8d74-11ec-9ec0-e611aa3f142c','1eba8bfa-d7b4-11ea-b9a5-0242ac110002','271ff9ca-d92b-11e9-888c-0242ac110002','28ece92e-1be8-11eb-8f3c-0242ac110002','2fc28a8c-db53-11e9-904e-0242ac110002','3499ea6e-9164-11eb-a1e5-9651aa804926','35f90b9a-7527-11ec-bee9-1ef2df7c7a9d','382c3d36-dbea-11ec-ad88-eefc54e3be1e','4280c40a-6015-11ed-add2-0e8a407a24fa','4653bac4-311f-11ea-a2e2-0242ac110002','4c91324e-9ccc-11eb-a3a5-5650210ee312','50b037fc-6af8-11ed-9a91-2e9d76359266','612bd1e6-8629-11eb-97cf-eaa94a9340c5','7d82d0f6-8629-11eb-8f08-9e0e86057d5b','8157058e-88a9-11ec-8028-cea1757a60a8','a183ac06-e336-11e9-a9e5-0242ac110002','a80d08d0-c87e-11ec-99c8-5e1b35c7b1eb','aa8aa760-ded3-11eb-81f5-0a451bcb0c0c','b66d6498-68e4-11ea-86ce-0242ac110002','b69e8296-e336-11e9-a9e5-0242ac110002','bb9c569a-6252-11ec-bdd3-2e8cb5685b8f','bd34ebe0-cb25-11ea-ad09-0242ac110002','c023aa0a-3fc5-11ed-bdf5-8ae2e7dbd103','c12ed956-421e-11ec-bd38-9e6560e0aaae','cba5a7a8-5f36-11ed-a6a2-122f5a1fca60','ecf0caf6-018b-11eb-830c-0242ac110002','f49dd1e6-c809-11eb-97e6-1e87532ba5d2','f80532d6-6bbc-11ed-b0c9-3687119db6b3','fe55d69c-f0d8-11ea-941d-0242ac110002']
+pipe_list = ['591e20f4-475f-11e9-94fa-0242ac110008', '939ef1b4-5d61-11e9-8381-0242ac110008', 'f77faeba-a203-11eb-ad28-0242ac110005']
 logger.info('pipe list len : {}'.format(len(pipe_list)))
 
 
@@ -57,8 +57,8 @@ def add_data(conn_info, pipe_id):
     db = client[conn_info.get('db')]
     collection = db[conn_info.get('conn_name')]
 
-    start_time = datetime(2022, 11, 25, 8, 00, 00)
-    end_time = datetime(2022, 11, 25, 19, 00, 00)
+    start_time = datetime(2022, 11, 24, 16, 00, 00)
+    end_time = datetime(2022, 12, 7, 14, 00, 00)
     # 获取指定时间之后的第一个计量数据信息（指定的时间不一定是计量时间节点）
     res_data = list(collection.find({'pipe_id': pipe_id, 'time': {"$gte": start_time}}).sort(
         "time", pymongo.ASCENDING).limit(1))

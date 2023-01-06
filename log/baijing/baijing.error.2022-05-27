@@ -1,0 +1,2 @@
+2022-04-18 17:04:31,292 [spider] [ERROR] - 公司信息抓取失败： 厦门美图网科技有限公司 , https://www.baijingapp.com/people/4095
+2022-04-18 17:04:31,295 [spider] [ERROR] - HTTPSConnectionPool(host='www.baijingapp.com', port=443): Read timed out. (read timeout=3)
