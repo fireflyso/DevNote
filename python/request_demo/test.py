@@ -6,3 +6,36 @@ data_list = {"asn": 9824, "prefix_list": [["27.136.0.0/16", "JP"], ["27.136.0.0/
 # res = requests.post(url=SAVE_FPING_API, data={"data_list": json.dumps(data_list)})
 res = requests.post(url=SAVE_FPING_API, json=data_list)
 print(res.content)
+
+
+import json
+import requests
+total = 0
+url = 'http://127.0.0.1/vpc_avg_bps_95'
+for pipe_id in ['1cd9268c-300f-11e9-938e-0242ac110002', '72dc84d4-300f-11e9-8d22-0242ac110002', '93834d18-300e-11e9-962e-0242ac110002', 'a4c63536-300e-11e9-9814-0242ac110002', 'c290907e-300f-11e9-9814-0242ac110002', 'd3b886a0-300e-11e9-938e-0242ac110002']:
+    data = {
+        "start_time": "2023-01-01 00:00:00",
+        "cloud_id": pipe_id,
+        "end_time": "2023-02-01 00:00:00",
+        "from_vpc": 0
+    }
+
+    res = requests.post(url=url, json=data).content
+    info = json.loads(res)
+    value = info['data'][0]['value']
+    value = round(value / 1000 / 1000, 2)
+    print('pipe : {} value : {}'.format(pipe_id, value))
+    total += value
+
+print('总量 : {}'.format(total))
+
+
+import requests
+import json
+url = 'http://127.0.0.1:8300/api/product_config'
+url = 'http://127.0.0.1/api/product_detail'
+data = {
+    "hostname": "pid3_proxy02"
+}
+res = requests.post(url, data)
+print(json.loads(res.content))

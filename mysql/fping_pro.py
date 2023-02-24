@@ -1,5 +1,5 @@
 # coding=utf-8
-# 操作线上库，慎用
+# fping一期线上数据库
 import pymysql
 import traceback
 
@@ -34,7 +34,7 @@ for r in res:
     cursor.execute(sql)
 
 
-sql = "UPDATE wanfping.product_vm SET ip = '148.153.65.178' WHERE id = 10;"
+sql = "UPDATE wanfping.product_vm SET nickname = '胡志明-临时测试', company = 'cds' WHERE id = 57;"
 cursor.execute(sql)
 db.commit()
 sql = "UPDATE wanfping.product_vm SET nickname = '单电信' WHERE id = 35;"

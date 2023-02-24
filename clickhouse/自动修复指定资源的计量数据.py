@@ -32,7 +32,7 @@ FLOW_TABLE_NAME = "flow_data_local_new"
 
 # with open("pipes.txt") as file:
 #     pipe_list = [item.replace('\n', '') for item in file]
-pipe_list = ['591e20f4-475f-11e9-94fa-0242ac110008', '939ef1b4-5d61-11e9-8381-0242ac110008', 'f77faeba-a203-11eb-ad28-0242ac110005']
+pipe_list = ['2f4a86e2-c968-11e9-a13c-0242ac110002', '37236c44-cb77-11e7-9a3f-0242ac110002', 'add4b98e-050d-11ea-96d0-0242ac110002', '375ef6fe-24f8-11e7-87e3-0242ac110002', '0a5f399c-b5ad-11e8-8733-0242ac110002', 'a899d09c-f5ee-11e7-b540-0242ac110002', '7e7851e0-f516-11e7-b680-0242ac110002', 'f9cbab06-600c-11ed-8cd7-1ee20a49811f', '9051a988-537c-11ed-bb37-2658d8b71f4f', 'ed25e87e-7779-11ed-8edb-e6b78cc38ca8', '0f477832-777a-11ed-aaf2-a6f16b914a57', '7ba159c2-3efd-11ed-b701-6a2a2c59d22e', 'a0fd1844-d263-11eb-9f69-663cd9efce11', 'd07bf4d0-0a5e-11e8-b89c-0242ac110002', 'adef470e-cd33-11e7-b0c5-0242ac110002', 'fb444086-92e6-4a57-9c0c-2740c109c8e6']
 logger.info('pipe list len : {}'.format(len(pipe_list)))
 
 
@@ -57,8 +57,8 @@ def add_data(conn_info, pipe_id):
     db = client[conn_info.get('db')]
     collection = db[conn_info.get('conn_name')]
 
-    start_time = datetime(2022, 11, 24, 16, 00, 00)
-    end_time = datetime(2022, 12, 7, 14, 00, 00)
+    start_time = datetime(2023, 1, 17, 1, 00, 00)
+    end_time = datetime(2023, 1, 17, 14, 00, 00)
     # 获取指定时间之后的第一个计量数据信息（指定的时间不一定是计量时间节点）
     res_data = list(collection.find({'pipe_id': pipe_id, 'time': {"$gte": start_time}}).sort(
         "time", pymongo.ASCENDING).limit(1))

@@ -21,7 +21,7 @@ cursor = db.cursor()
 # sql = "INSERT INTO `cdscp`.`mn_alarm_event`(`id`, `customer_id`, `flag`, `obj_group_id`, `subject`, `content`, `detail`, `create_time`, `update_time`, `alarm_type`) VALUES ('87b54c48-96db-43af-be5a-0fceeb30e7d4', 'E036042', 1, '07cb50ba-7f46-11ec-8c13-0242ac110002', '高防ip回源带宽监控对象组“lxl-高防IP”流量告警', 'mail_content:高防ip|你好-43.227.197.71|流量异常:回源带宽超过了10Mbps的限制; message_content:高防ip|你好-43.227.197.71|流量异常:回源带宽超过了10Mbps的限制', '{\"alarm_info\": [{\"obj_alarm_detail\": [{\"max_value\": 10, \"verbose_data\": [{\"value_Mbps\": \"11Mbps\", \"value\": \"11836448bps\", \"time\": \"2021-10-08 11:50:09\"}, {\"value_Mbps\": \"11Mbps\", \"value\": \"11824144bps\", \"time\": \"2021-10-08 11:49:08\"}]}], \"obj_name\": \"\\u9ad8\\u9632\", \"obj_id\": \"2081\"}]}', '2022-01-27 18:00:19', '2022-01-27 18:00:19', 1);"
 
 
-sql = "UPDATE automatic_product.route SET ip = '148.153.126.177' WHERE route_id = '25a409fa-83b7-4676-a8bd-f2ee47668cf2';"
+sql = "select * from snmp_register where route_ip = '10.215.122.9';"
 _ = cursor.execute(sql)
 res = cursor.fetchall()
 for r in res:
@@ -38,7 +38,7 @@ for r in res:
 sql = "select count(*) from cloud_task where status = 'NEW';"
 cursor.execute(sql)
 cursor.fetchall()
-sql = "UPDATE automatic_product.subinterface SET subinterface_name = 'Bundle-Ether1047.10', vlan_id = 10 WHERE subinterface_id = 'cba093eb-e4e4-444c-81cc-db441c2e0111';"
+sql = "delete from fping_prefixes where is_valid = 0;"
 cursor.execute(sql)
 db.commit()
 cursor.close()

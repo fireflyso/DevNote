@@ -13,6 +13,7 @@ client = Client(host="10.13.124.36", port=CK_PORT, user=CK_USER, password=CK_PAS
 client = Client(host="10.13.124.37", port=CK_PORT, user=CK_USER, password=CK_PASSWORD, database=CK_DB_ANME)
 
 
+client.execute("select count(*) from f_ping.rtt_data_v3_20231 where ping_time>='2023-01-31 12:15:00' and src_ip='118.68.168.129'")
 
 client.execute("SELECT time, in_bps, out_bps FROM flow_snmp.flow_data_first_all where pipe_id  = '6c6d7e6a-2375-11e9-9cc0-0242ac110002' and time >= '2021-06-30 12:30:00' and time <= '2021-06-30 16:55:00' order by time")
 

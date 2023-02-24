@@ -3,6 +3,7 @@ import xlwt
 import time
 from lxml import etree
 import requests
+import random
 logger = utils_logger.get_logger('baijing', 'INFO')
 HEADERS = {
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 '
@@ -29,20 +30,20 @@ def spider(list, app_list, country_name):
         logger.info('{} : 第 {} 名， app : {}, 本地榜单第 {} 名，company : {}, type : {}'.format(
             list, rank, app_name, local_rank, company, type_str))
 
-
+fail_list = []
 def get_home_page():
     try:
-        logger.info('开始抓取国家 : {}...'.format(country_name))
-        response = requests.get(url=url, headers=HEADERS, timeout=3)
-        time.sleep(1)
+        logger.info('开始抓取国家 : {}, 平台 : {}...'.format(country_name, platform_type))
+        response = requests.get(url=url, headers=HEADERS, timeout=10)
         html = etree.HTML(response.content)
         free_app_list = html.xpath("//td[@class='free-meat']/div")
         pro_app_list = html.xpath("//td[@class='money-meat']/div")
         pop_app_list = html.xpath("//td[@class='well-meat']/div")
-        # logger.info('抓取成功，随机休眠几秒')
-        # time.sleep(random.randint(2, 6))
+        logger.info('抓取成功，随机休眠几秒')
+        time.sleep(random.randint(2, 6))
     except BaseException as err:
         logger.info('请求链接：{} 报错'.format(err))
+        fail_list.append((country_name, platform_type))
     else:
         spider('免费榜', free_app_list, country_name)
         spider('付费榜', pro_app_list, country_name)
@@ -89,6 +90,7 @@ if __name__ == '__main__':
         '娱乐排行榜': (6016, 'ENTERTAINMENT'),
     }
     country_code_dict = {'新加坡(新加坡)': 'SG', '美国(达拉斯、弗吉尼亚、洛杉矶、迈阿密)': 'US', '德国(法兰克福)': 'DE', '台湾(台北)': 'TW', '巴西(圣保罗)': 'BR', '印度尼西亚(雅加达)': 'ID', '印度(孟买)': 'IN', '越南(胡志明)': 'VN', '中国(广州、上海、无锡)': 'CN', '日本(东京)': 'JP', '香港(香港)': 'HK', '荷兰(阿姆斯特丹)': 'NL', '韩国(首尔)': 'KR'}
+    # country_code_dict = {'新加坡(新加坡)': 'SG'}
 
     google_url = 'https://www.baijing.cn/store/?platform=google&country={}&identifier=iPhone&category={}&date=1672848000&sort='
     ios_url = 'https://www.baijing.cn/store/?platform=ios&country={}&identifier=iPad&category={}&date=1672848000&sort='
@@ -140,5 +142,6 @@ if __name__ == '__main__':
                 row_index = write_sheet(hot_dict, row_index)
 
     f.save('排行榜.xls')
+    print('失败列表 : {}'.format(fail_list))
 
 
