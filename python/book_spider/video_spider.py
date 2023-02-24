@@ -96,3 +96,4 @@ if __name__ == '__main__':
     os.system("ffmpeg -i all.ts -map 0 -c copy {}".format(file_name))
     print("转换成功")
     os.system("mv {} source".format(file_name))
+    os.system("rm -rf ts/*")
