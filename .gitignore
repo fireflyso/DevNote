@@ -128,3 +128,4 @@ dmypy.json
 .idea/
 .log/
 .local/
+*.ts
