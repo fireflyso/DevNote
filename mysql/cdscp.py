@@ -21,39 +21,32 @@ cursor = db.cursor()
 # sql = "INSERT INTO `cdscp`.`mn_alarm_event`(`id`, `customer_id`, `flag`, `obj_group_id`, `subject`, `content`, `detail`, `create_time`, `update_time`, `alarm_type`) VALUES ('87b54c48-96db-43af-be5a-0fceeb30e7d4', 'E036042', 1, '07cb50ba-7f46-11ec-8c13-0242ac110002', '高防ip回源带宽监控对象组“lxl-高防IP”流量告警', 'mail_content:高防ip|你好-43.227.197.71|流量异常:回源带宽超过了10Mbps的限制; message_content:高防ip|你好-43.227.197.71|流量异常:回源带宽超过了10Mbps的限制', '{\"alarm_info\": [{\"obj_alarm_detail\": [{\"max_value\": 10, \"verbose_data\": [{\"value_Mbps\": \"11Mbps\", \"value\": \"11836448bps\", \"time\": \"2021-10-08 11:50:09\"}, {\"value_Mbps\": \"11Mbps\", \"value\": \"11824144bps\", \"time\": \"2021-10-08 11:49:08\"}]}], \"obj_name\": \"\\u9ad8\\u9632\", \"obj_id\": \"2081\"}]}', '2022-01-27 18:00:19', '2022-01-27 18:00:19', 1);"
 
 
-sql = "select * from snmp_register where route_ip = '10.215.122.9';"
+sql = "select c.id, c.vlan_name, a.vlan_id, b.interface_name from automatic_product.subinterface a, automatic_product.interface b, cloud_pipe c, cloud_gic_app_network d where a.interface_id = b.interface_id and c.is_valid = 1 and c.cds_resource_id = a.subinterface_id and c.status = 'ok' and c.id = d.pipe_id and d.is_valid = 1;"
 _ = cursor.execute(sql)
 res = cursor.fetchall()
 for r in res:
-    print("UPDATE automatic_product.subinterface SET interface_id = 'd5fe5c81-e661-483b-9e65-d76aeb6adc3a' WHERE subinterface_id = '{}';".format(r[0]))
+    if r[1] != "{}.{}".format(r[3], r[2]):
+        print("pipe : {}, vlan name: {}, if name : {}, vlan id : {}".format(r[0], r[1], r[3], r[2]))
 
-
-sql = "select id, vlan_id from cdscp.cloud_pipe where cds_resource_id in (select subinterface_id from automatic_product.subinterface where interface_id = '9daa14fe-6b5a-43d0-9add-1d653afae30d' and vlan_id in ('1810','2014','2025','2042','2057','2058','2062','2100','2103','2118','2126','2173','2182','2193','2194','2202','2206','2221','2282','2288','2299','2300','2305','2314','2318','2327','2336','2384','2397','2412','2429','2447','2461','2522','2527','2542','2548','2557','2565','2573','2586','2631','2640','2651','2681','2688','2697','2754','2759','2761','2825','2835','2851','2858','2862','2864','2914','2929','2939','2940','2944','2981','3006','3011','3037','3041','3061','3086','3087','3107','3115','3132','3134','3156','3163','3167','3225','3241','3255','3333','3367','3381','3406','3430','3516','3527','3528','3559','3562','3585','3601','3622','3623','3657','3659','3661','3669','3687','3709','3737','3744','3765','3770','3785','3795','3807','3810','3831','3857','3875','3878','3879','3886','3888','3890','3895','3915','3977','3980')) and is_valid = 1;"
+sql = "select a.id, e.name, a.qos, d.name from cloud_gic a, cloud_gic_app_network b, cloud_app c, cloud_datacenter d, account_customer e where a.is_valid = 1 and a.id = b.gic_id and b.is_valid = 1 and b.app_id = c.id and c.site_id = d.id and a.customer_id = e.id;"
 _ = cursor.execute(sql)
 res = cursor.fetchall()
+gic_id = ''
+node_list = []
+temp_info = (0,0,0,[])
 for r in res:
-    print("UPDATE cdscp.cloud_pipe SET vlan_name = 'Bundle-Ether170.{}' WHERE id = '{}';".format(r[1], r[0]))
+    if gic_id == r[0]:
+        node_list.append(r[3])
+        temp_info = r
+    else:
+        gic_id = r[0]
+        print("{}, {}, {}, {}".format(temp_info[0], temp_info[1], temp_info[2], '-'.join(node_list)))
+        node_list = [r[3]]
+        temp_info = r
 
 
-sql = "select count(*) from cloud_task where status = 'NEW';"
-cursor.execute(sql)
-cursor.fetchall()
-sql = "delete from fping_prefixes where is_valid = 0;"
+
+
+sql = '''UPDATE cdscp.api_action_mapping SET name = '查询所有pipe资源带宽使用率', description = '查询所有pipe资源带宽使用率(未加入GPN的私网不进行统计)', return_mapping = '{"_type":"dict","Time":{"_type":"string","_name":"time"},"VdcInfo":{"_type":"list","_name":"vdc_info","VdcId":{"_type":"string","_name":"vdc_id"},"VdcName":{"_type":"string","_name":"vdc_name"},"PipeInfo":{"_type":"list","_name":"pipe_info","PipeId":{"_type":"string","_name":"pipe_id"},"PipeName":{"_type":"string","_name":"pipe_name"},"Type":{"_type":"string","_name":"type"},"Qos":{"_type":"int","_name":"qos"},"InFlow":{"_type":"float","_name":"in_flow"},"OutFlow":{"_type":"float","_name":"out_flow"},"InUtilization":{"_type":"string","_name":"in_utilization"},"OutUtilization":{"_type":"string","_name":"out_utilization"}}}}' WHERE id = 3297;'''
 cursor.execute(sql)
 db.commit()
-cursor.close()
-try:
-    pass
-except:
-    db.rollback()
-    traceback.print_exc()
-finally:
-    cursor.close()
-
-
-sql_list = ["UPDATE automatic_product.subinterface SET subinterface_name = 'Bundle-Ether22.2002', interface_id = '96a90d7f-1529-4ed1-aef8-310a407bd589' WHERE subinterface_id = '26d4c8f9-2db5-4454-a2a5-03646e86cb9b';","UPDATE automatic_product.subinterface SET subinterface_name = 'Bundle-Ether22.2420', interface_id = '96a90d7f-1529-4ed1-aef8-310a407bd589' WHERE subinterface_id = '02b8fe2f-dc35-41cc-9364-6158d2f6b885';","UPDATE cdscp.cloud_pipe SET vlan_name = 'Bundle-Ether22.2002' WHERE id = '8b1f7296-eadc-11e7-a364-0242ac110002';","UPDATE cdscp.cloud_pipe SET vlan_name = 'Bundle-Ether22.2420' WHERE id = '08cfefd0-6aa0-11e7-bab8-0242ac110002';"]
-for sql in sql_list:
-    cursor.execute(sql)
-
-
-

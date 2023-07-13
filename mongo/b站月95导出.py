@@ -1,8 +1,9 @@
 import datetime
-from pymongo import MongoClient
-import json
+import os
+
 import pymysql
 import xlwt
+from pymongo import MongoClient
 
 db = pymysql.connect(
     host="write-mysql.gic.local",
@@ -34,11 +35,11 @@ gic_dir = {
     '4aec932c-787d-11e9-9774-0242ac110002': 'PushApple 100 1000',
     '565c694e-0a4c-11e8-9170-0242ac110002': 'ops 100 250'
 }
-time_start = '2023-01-01 00:00:00'
-time_end = '2023-02-01 00:00:00'
 
-start = datetime.datetime.strptime(time_start, '%Y-%m-%d %H:%M:%S')
-end = datetime.datetime.strptime(time_end, '%Y-%m-%d %H:%M:%S')
+end = datetime.datetime.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+start = end.replace(month=end.month-1)
+print('开始清理历史数据文件')
+os.system("rm -rf avg_95.xls")
 
 
 def set_style(name, height, bold=False):

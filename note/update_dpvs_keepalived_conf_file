@@ -1,0 +1,102 @@
+if [ -f "/etc/keepalived/keepalived.conf " ]
+then
+      mv /etc/keepalived/keepalived.conf /etc/keepalived/keepalived.conf.back 
+else
+      echo "This file is not exist."
+fi
+
+cat > /etc/keepalived/keepalived.conf << EOF
+! Configuration File for keepalived
+
+global_defs {
+}
+
+{% for LOCAL_IP_INFO in LOCAL_IP_INFO_LIST %}
+local_address_group {{LOCAL_IP_INFO.PIPE_ID}} {  # LIP
+    {% for LOCAL_IP in LOCAL_IP_INFO.LIP_LIST %}
+    {{LOCAL_IP.IP}} {{LOCAL_IP.NIC}}{% endfor %}
+}
+{% endfor %}
+
+{% for SLB_LISTEN in SLB_LISTEN_LIST %}
+
+{% if SLB_LISTEN.IS_ACL == 'on' %}
+
+{{SLB_LISTEN.ACL_TYPE }} {{SLB_LISTEN.ACL_NAME}} {  #acl whiteorbalck list
+{% for ACL_MEMBER_IP in SLB_LISTEN.ACL_MEMBER_LIST%}
+    {{ACL_MEMBER_IP}}{% endfor %}
+
+}
+{% endif %}
+virtual_server {{SLB_LISTEN.VIP}} {{ SLB_LISTEN.PORT}} {  # vip port
+    lb_algo {{SLB_LISTEN.SCHEDULER}}     # scheduler
+    lb_kind FNAT
+    protocol {{ SLB_LISTEN.PROTOCOL }}       #  listen protocol
+
+   {% if SLB_LISTEN.IS_CHECK == "on" %}
+    delay_loop {{SLB_LISTEN.DELAY_LOOP}}  # delay time for check{% endif %}
+    persistence_timeout {{SLB_LISTEN.TIMEOUT}}  # listen timeout
+    laddr_group_name {{SLB_LISTEN.PIPE_ID}}   # Local IP group-ID
+    {% if SLB_LISTEN.IS_ACL == 'on' %}
+    {{SLB_LISTEN.ACL_GROUP_VARIABLE_NAME}} {{SLB_LISTEN.ACL_NAME}}  # white acl group id
+    {% endif %}
+    {% for REAL_SERVER in SLB_LISTEN.REAL_SERVER_LIST %}
+    real_server {{REAL_SERVER.IP}} {{REAL_SERVER.PORT}} { # real-server
+        weight {{REAL_SERVER.WEIGHT}}  # port weight
+        inhibit_on_failure  # Set weight to 0 when healthchecker detects failure
+        {% if SLB_LISTEN.IS_CHECK == "on" %}
+            {% if SLB_LISTEN.CHECK_PROTOCOL == "TCP" %}  
+        # check protocol tcp
+        TCP_CHECK {
+            {% if SLB_LISTEN.IS_USED_RS_PORT == "off" %}
+            # check port
+            connect_port {{SLB_LISTEN.CHECK_PORT }}  
+            {% elif SLB_LISTEN.IS_USED_RS_PORT == "on" %}
+            # check port
+            connect_port {{REAL_SERVER.PORT}}
+            {% endif %}
+            # Retry count to make additional checks if check of an alive server fails
+            retry {{SLB_LISTEN.RETRY}}
+            # check  connection timeout
+            connect_timeout {{SLB_LISTEN.CONNECT_TIMEOUT}}
+            # delay before retry after failure
+            delay_before_retry {{SLB_LISTEN.DELAY_BEFORE_RETRY}}
+            # delay timer for checker polling (60 seconds if not specified)
+            delay_loop {{SLB_LISTEN.DELAY_LOOP}}
+        }
+       {% elif SLB_LISTEN.CHECK_PROTOCOL == "HTTP" %}
+        HTTP_GET {
+            url {
+                # #eg path / , or path /mrtg2/ 
+                path {{SLB_LISTEN.PATH}}
+                # eg status_code 200 or status_code 200-299 400-499 503 505
+                status_code {{SLB_LISTEN.STATUS_CODE}}
+            }
+            {% if SLB_LISTEN.IS_USED_RS_PORT == "off" %}
+            # check por
+            connect_port {{SLB_LISTEN.CHECK_PORT }}{% elif SLB_LISTEN.IS_USED_RS_PORT == "on"%}
+            # check por
+            connect_port {{REAL_SERVER.PORT}}{% endif %}
+            # Retry count to make additional checks if check of an alive server fails
+            retry {{SLB_LISTEN.RETRY}}
+            # check  connection timeout
+            connect_timeout {{SLB_LISTEN.CONNECT_TIMEOUT}}
+            # delay before retry after failure
+            delay_before_retry {{SLB_LISTEN.DELAY_BEFORE_RETRY}}
+            # delay timer for checker polling (60 seconds if not specified)
+            delay_loop {{SLB_LISTEN.DELAY_LOOP}}
+           {% if SLB_LISTEN.IS_USED_RS_IP == "off" %}
+            # If not set, uses virtualhost from real or virtual server
+            virtualhost {{SLB_LISTEN.VIRTUALHOST}}
+            {% endif %}
+        }
+            {% endif %}
+        {% endif %}
+    }
+    {% endfor %}
+}
+{% endfor %}
+EOF
+chmod 640 /etc/keepalived/keepalived.conf
+systemctl restart keepalived
+systemctl status keepalived

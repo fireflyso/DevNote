@@ -1,23 +1,5 @@
-import clickhouse_driver
-from datetime import datetime, timedelta
-ip = '164.52.2.166'
-end_time = datetime.now().replace(microsecond=0)
-start_time = end_time - timedelta(minutes=60)
-
-
-CK_HOST = "10.13.124.35"
-CK_USER = "default"
-CK_PASSWORD = "$nM*Jgkx%DmU"
-connection = clickhouse_driver.connect(host=CK_HOST, port=9000, user=CK_USER, password=CK_PASSWORD,database='wan_fping')
-
-# query = "select count(*) from wan_fping.mtr_time_all where mtr_time > %(time)s;"
-query = "select country_code from wan_fping.fping_data_all where src_ip = toIPv4(%(ip)s) and ping_time >= %(start_time)s and ping_time <= %(end_time)s group by country_code;"
-
-# params = {'time': '2023-02-20 14:00:41'}
-params = {'ip': ip, 'start_time': start_time, 'end_time': end_time}
-
-cursor = connection.cursor()
-cursor.execute(query, params)
-
-for row in cursor:
-    print(row)
+import clickhouse_connect
+client = clickhouse_connect.get_client(host='10.13.133.133', username="flowdata", password="wVen6RK3KpkpGdsA")
+client.command("""ALTER TABLE flow_snmp.flow_data_local_new UPDATE in_bps = 2110148916.0,out_bps = 85141233354.0 WHERE pipe_id = '4eaf5570-f45d-11ed-bb3b-fac1491bd8ed' and time = '2023-07-01 03:10:00';""")
+client.execute("SELECT pipe_id, time, in_bps, out_bps FROM flow_snmp.flow_data_local_new where pipe_id = '4eaf5570-f45d-11ed-bb3b-fac1491bd8ed' and time = '2023-07-01 03:10:00'")
+client.query("SELECT pipe_id, time, in_bps, out_bps FROM flow_snmp.flow_data_local_new where pipe_id = '4eaf5570-f45d-11ed-bb3b-fac1491bd8ed' and time = '2023-07-01 03:10:00'").result_set

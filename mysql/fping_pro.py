@@ -14,11 +14,16 @@ db = pymysql.connect(
 cursor = db.cursor()
 
 
-id_list = [9,10,11,12,13,14,44,91,90,89,93,94,95,96,97,99,100,101,103]
-for pid in id_list:
-    sql = "INSERT INTO wanfping.fping_group_vm (create_time, update_time, is_valid, fping_group_id, product_vm_id) VALUES ('2022-10-18 14:29:47', '2022-10-18 14:29:47', 1, {}, 56);".format(pid)
-    print(sql)
-    cursor.execute(sql)
+id_list = [65, 467, 54, 469, 470, 471, 472, 473, 474, 475, 476, 595, 721]
+id_dict = {65: 'PT XL Axiata(24203)' , 467: 'Telkomsel(23693)' , 54: 'Telekomunikasi Indonesia (7713)' , 469: 'Indosat Ooredoo(4761)' , 470: 'Telkom Indonesia(17974)' , 471: 'IndosatM2(4795)' , 472: 'Link Net(23700)' , 473: 'Biznet(17451)' , 474: 'Lintasarta(4800)' , 475: 'Jetcoms Netindo(17671)' , 476: 'CBN(4787)' , 595: 'Hutchison CP Telecommunications(45727)' , 721: 'PT WIRELESS INDONESIA(18004)'}
+for pid, name in id_dict.items():
+    print('运营商 : {}'.format(name))
+    sql = "select operator_id, start_ip, end_ip from sub_net where operator_id = {} and is_valid = 1 and country = '印度尼西亚' limit 30;".format(pid)
+    _ = cursor.execute(sql)
+    res = cursor.fetchall()
+    for r in res:
+        print('{}/24'.format(r[1]))
+
 
 sql = "select a.id, a.name, a.nickname, b.name from product_vm a, site b where a.site_id = b.id and a.company = 'cds';"
 
@@ -34,7 +39,7 @@ for r in res:
     cursor.execute(sql)
 
 
-sql = "UPDATE wanfping.product_vm SET nickname = '胡志明-临时测试', company = 'cds' WHERE id = 57;"
+sql = "UPDATE wanfping.product_vm SET name = '马赛BGP', is_valid = 0 WHERE id = 50;"
 cursor.execute(sql)
 db.commit()
 sql = "UPDATE wanfping.product_vm SET nickname = '单电信' WHERE id = 35;"

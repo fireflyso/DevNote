@@ -1,0 +1,78 @@
+! Configuration File for keepalived
+
+global_defs {
+}
+
+
+
+
+vrrp_instance VI_1 {
+    state MASTER
+    interface dpdk0.kni
+    dpdk_interface dpdk0
+    virtual_router_id 1
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass 7zRAwEwY4sxfoDi
+    }
+
+    virtual_ipaddress {
+
+        10.10.15.3
+
+    }
+}
+
+
+
+
+
+
+
+deny_address_group 89590e90-143e-4e07-b48b-5c2acd0c7731 {
+
+    148.153.111.4
+
+}
+
+virtual_server 10.10.15.3 80 {
+    lb_algo rr
+
+
+    lb_kind DR
+
+
+    protocol TCP
+
+
+    delay_loop 10
+
+    persistence_timeout 10
+
+
+
+
+    daddr_group_name 89590e90-143e-4e07-b48b-5c2acd0c7731
+
+
+    real_server 10.10.5.4 80 {
+        weight 80
+        inhibit_on_failure
+
+
+        TCP_CHECK {
+
+            connect_port 80
+
+            retry 2
+            connect_timeout 5
+            delay_before_retry 150
+            delay_loop 10
+        }
+
+
+    }
+
+}

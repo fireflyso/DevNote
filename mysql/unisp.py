@@ -2,7 +2,6 @@
 # unisp,二期网络质量覆盖
 
 import pymysql
-import traceback
 
 db = pymysql.connect(
     host="write-wangluo-mysql-edge.gic.local",
@@ -16,7 +15,7 @@ db = pymysql.connect(
 cursor = db.cursor()
 
 # 查询
-sql = "select asn, operator_id, count(0) as count from fping_asn group by asn, operator_id having count > 1 order by asn;"
+sql = "select run_config from fping_product where id = 21;"
 _ = cursor.execute(sql)
 res = cursor.fetchall()
 for r in res:
@@ -36,9 +35,14 @@ cursor.close()
 import json
 data = {"prefixes_spider_thread_count": 5, "ip_spider_thread_count": 100, "fping_spider_thread_count": 30, "mtr_spider_thread_count": 300}
 data = json.dumps(data)
-sql = "UPDATE unisp.fping_product SET proxy_api = 'http://148.153.54.93:30110' WHERE id = 26;"
+sql = '''UPDATE unisp.fping_product SET run_config = '{"prefixes_spider_thread_count": 1, "ip_spider_thread_count": 1, "fping_spider_thread_count": 10, "mtr_spider_thread_count": 1}' WHERE id in (33, 36, 39, 42, 45);'''
+sql = "UPDATE unisp.fping_product SET ip = '185.246.114.122', private_ip = '185.246.114.122' WHERE id = 42;"
 cursor.execute(sql)
 db.commit()
 cursor.close()
 
+
+
+# 删除
+sql = 'delete from unisp.fping_product where id = 30'
 

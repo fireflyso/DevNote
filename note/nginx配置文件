@@ -1,0 +1,45 @@
+
+
+
+server {
+        listen       80;
+        server_name  *.liuxulu.top;
+
+        if ($http_host ~* "^(.*?)\.liuxulu\.top$") {    #正则表达式
+                set $domain $1;                     #设置变量
+        }
+
+        location / {
+            if ($domain ~* "alist") {
+            proxy_pass http://alist.liuxulu.top:5244;      #域名中有alist，转发到5244端口
+            }
+            if ($domain ~* "bit") {
+            proxy_pass http://bit.liuxulu.top:8888;      #域名中有bit，转发到8888端口
+            }
+            if ($domain ~* "blog") {
+            proxy_pass http://blog.liuxulu.top:8088;      #域名中有bit，转发到8888端口
+            }
+
+            tcp_nodelay     on;
+            proxy_set_header Host            $host;
+            proxy_set_header X-Real-IP       $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            #以上三行，目的是将代理服务器收到的用户的信息传到真实服务器上
+
+            root   html;
+            index  index.html index.htm;            #默认情况
+        }
+        error_log log/error.log debug;
+        log_format myFormat '$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式
+        access_log log/access.log myFormat;
+}
+
+server{
+        listen    8088;     # 端口
+        root /home/git/blog_page;   # 静态页面路径，要和上面git仓库配置路径对应上
+        server_name blog.liuxulu.top;   # 这个好像没啥用
+        location /{
+        }
+        access_log /var/logs/blog-access.log combined;
+}
+

@@ -1,0 +1,28 @@
+2023-06-09 10:55:00,520 [<module>] [WARNING] - 'NoneType' object is not subscriptable
+2023-06-09 10:59:48,088 [<module>] [WARNING] - 'NoneType' object is not subscriptable
+2023-06-09 10:59:57,390 [<module>] [WARNING] - 'NoneType' object is not subscriptable
+2023-06-09 11:00:11,420 [<module>] [WARNING] - 'NoneType' object is not subscriptable
+2023-06-09 11:59:19,025 [<module>] [WARNING] - 'data'
+2023-06-09 11:59:20,057 [<module>] [WARNING] - 'data'
+2023-06-09 11:59:30,066 [<module>] [WARNING] - HTTPConnectionPool(host='deal.ggzy.gov.cn', port=80): Read timed out. (read timeout=10)
+2023-06-09 15:36:55,363 [<module>] [WARNING] - 'data'
+2023-06-09 15:36:58,385 [<module>] [WARNING] - 'data'
+2023-06-09 15:37:07,834 [<module>] [WARNING] - 'data'
+2023-06-09 15:37:08,853 [<module>] [WARNING] - 'data'
+2023-06-09 15:42:43,939 [<module>] [WARNING] - 'data'
+2023-06-09 15:42:44,987 [<module>] [WARNING] - 'data'
+2023-06-09 15:42:48,038 [<module>] [WARNING] - 'data'
+2023-06-09 15:42:51,058 [<module>] [WARNING] - 'data'
+2023-06-09 15:43:10,668 [<module>] [WARNING] - 'data'
+2023-06-09 15:43:23,360 [<module>] [WARNING] - 'data'
+2023-06-09 15:43:25,413 [<module>] [WARNING] - 'data'
+2023-06-09 15:43:27,443 [<module>] [WARNING] - 'data'
+2023-06-09 15:43:38,279 [<module>] [WARNING] - 'data'
+2023-06-09 15:43:41,301 [<module>] [WARNING] - 'data'
+2023-06-09 15:43:42,341 [<module>] [WARNING] - 'data'
+2023-06-09 15:43:44,365 [<module>] [WARNING] - 'data'
+2023-06-09 16:08:04,176 [<module>] [WARNING] - 'data'
+2023-06-09 16:08:07,197 [<module>] [WARNING] - 'data'
+2023-06-09 16:08:08,221 [<module>] [WARNING] - 'data'
+2023-06-09 16:08:10,249 [<module>] [WARNING] - 'data'
+2023-06-09 16:08:11,275 [<module>] [WARNING] - 'data'
