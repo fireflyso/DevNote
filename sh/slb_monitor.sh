@@ -1,4 +1,21 @@
 #!/bin/bash
+
+# 线上版本
+#!/bin/bash
+
+url='wan-flow-bps.gic.pre/slb_monitor_save'
+active_conn=$(ipvsadm -ln --exact | tr '\n' '|')
+all_conn=$(ipvsadm -ln --stats --exact | tr '\n' '|')
+slb_vm_id=$SLB_VM_ID
+monitor_date=$(date "+%Y-%m-%d %H:%M:%S")
+
+data='active_conn='$active_conn'&all_conn='$all_conn'&slb_vm_id='$slb_vm_id'&monitor_date='$monitor_date
+echo $data
+response=$(curl -X POST -d "$data" $url)
+echo $response
+
+
+
 # 第二版内容（舍弃网卡信息采集）
 # 采集DPVS主机中SLB的监控数据
 # 1. ipvsadm -ln 采集到实时连接数

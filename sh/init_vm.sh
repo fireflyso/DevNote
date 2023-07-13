@@ -5,6 +5,7 @@ echo "========================="
 echo " 1：检查docker服务安装情况"
 echo " 2：安装alist"
 echo " 3：安装qBittorrent"
+echo " 4：安装Nginx"
 echo "========================="
 
 echo "--- 0. 准备安装zsh ---"
@@ -60,5 +61,36 @@ EOF
 docker-compose -f /data/qbittorrent/docker-compose.yml up -d
 echo "通过端口8888访问qbittorrent服务,默认用户密码: admin/adminadmin 请在web ui中设置-web ui下修改密码"
 
+echo "--- 3. 安装Nginx ---"
+docker pull nginx:latest
+mkdir -vp /data/nginx
+cat > /data/nginx/host.conf <<EOF
+server {
+        listen       80;
+        server_name  *.liuxulu.top;
 
+        if ($http_host ~* "^(.*?)\.liuxulu\.top$") {    #正则表达式
+                set $domain $1;                     #设置变量
+        }
 
+        location / {
+            if ($domain ~* "alist") {
+               proxy_pass http://liuxulu.top:5244;      #域名中有alist，转发到5244端口
+            }
+            if ($domain ~* "bit") {
+               proxy_pass http://liuxulu.top:8888;      #域名中有bit，转发到8888端口
+            }
+
+            tcp_nodelay     on;
+            proxy_set_header Host            $host;
+            proxy_set_header X-Real-IP       $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            #以上三行，目的是将代理服务器收到的用户的信息传到真实服务器上
+
+            root   html;
+            index  index.html index.htm;            #默认情况
+        }
+}
+EOF
+docker run -d --net=host -v /data/nginx/:/etc/nginx/conf.d/ --name nginx nginx
+docker run -d --net=host -v /data/nginx/:/etc/nginx/conf.d/ -v /data/blog_page:/data/blog_page --name nginx nginx
