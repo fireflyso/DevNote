@@ -21,8 +21,8 @@ HEADERS = {
                   '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 }
 base_url = 'https://www.cool18.com/bbs4/'
-keyword = '杨神 拉拉橙'
-file_name = ''
+keyword = ''
+file_name = '穆宁雪'
 file_name = file_name if file_name else keyword
 url = 'https://www.cool18.com/bbs4/index.php?act=threadsearch&app=forum&keywords={}&submit=栏目搜索'.format(keyword)
 print('准备请求 : {}'.format(url))

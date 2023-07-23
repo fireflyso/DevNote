@@ -27,8 +27,8 @@ client = MongoClient(MONGO_STR, maxPoolSize=MONGO_DB_maxPoolSize, waitQueueMulti
                      waitQueueTimeoutMS=30000, socketTimeoutMS=30000)
 db = client[MONGO_DB_NAME]
 collection = db[MONGO_TABLE_NAME]
-
-list(collection.find({'pipe_id': '272ee83e-b33a-11e9-833f-0242ac110002'}).sort([('time', -1)]).limit(3))
+start_time = datetime.strptime('2023-07-11 13:55:16', '%Y-%m-%d %H:%M:%S')
+list(collection.find({'pipe_id': 'd9641931-2ca3-4940-9100-b31f5459130a', 'time': {"$gt": start_time}}).sort([('time', 1)]).limit(3))
 
 
 start_time = datetime.strptime('2022-04-15 10:55:27', '%Y-%m-%d %H:%M:%S')
