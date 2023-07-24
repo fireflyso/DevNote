@@ -19,15 +19,15 @@ import requests
 import json
 from datetime import datetime, timedelta
 
-api = "http://localhost:9999/flow"
+api = "http://localhost/bps_95"
 start_time = (datetime.now() - timedelta(days=1)).replace(microsecond=0)
 mid_time = start_time + timedelta(hours=1)
 end_time = start_time + timedelta(hours=2)
 # 线上参数
 data = {
-    "start_time": str(start_time),
-    "end_time": str(end_time),
-    "cloud_id": 'd9641931-2ca3-4940-9100-b31f5459130a'
+    "start_time": '2022-06-01 00:00:00',
+    "end_time": '2023-07-01 00:00:00',
+    "cloud_id": '4eaf5570-f45d-11ed-bb3b-fac1491bd8ed'
 }
 
 res = requests.post(url=api, data=data)
