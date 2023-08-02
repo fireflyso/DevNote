@@ -7,6 +7,13 @@ CK_DB_ANME = "flow_snmp"
 CK_PORT = 9000
 client = Client(host=CK_HOST, port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
 
+client.execute("select * from flow_snmp.flow_data WHERE pipe_id = '6b6a65e6-2b5e-11ee-b573-fe156b49c309' and time >= '2023-07-27 10:00:00' and time <= '2023-07-28 10:00:00'")
+
+client.execute("select time, in_flow, out_flow, in_bps, out_bps from flow_snmp.flow_data WHERE pipe_id = 'ed3977c4-d57f-11eb-af9f-ea07a495bb82' and time >= '2022-07-01 00:00:00' and time <= '2022-08-01 00:00:00' order by in_bps desc limit 10;")
+client.execute("select time, in_flow, out_flow, in_bps, out_bps from flow_snmp.flow_data WHERE pipe_id = 'ed3977c4-d57f-11eb-af9f-ea07a495bb82' and time >= '2022-07-01 00:00:00' and time <= '2022-08-01 00:00:00' order by out_bps desc limit 10;")
+
+
+
 client.execute("select count(*) from flow_snmp.flow_data WHERE pipe_id = 'de60b252-4bff-11ec-b6a5-1ebe42b2cb1f' and time >= '2023-07-03 07:00:00' and time <= '2023-07-03 18:00:00';")
 client.execute("ALTER TABLE flow_snmp.flow_data_local_new DELETE WHERE pipe_id = '29d3919c-c080-11ec-aed2-627563e71072' and time >= '2023-07-03 07:00:00' and time <= '2023-07-03 18:00:00';")
 

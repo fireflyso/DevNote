@@ -129,7 +129,7 @@ for user_id, user_name in user_dict.items():
             sheet.write(row, 2, round(float(str(data[1]))/1024/1024, 3), default_style)
             row += 1
 
-        f.save('flow_file/{}/{}.xls'.format(user_name, vdc_name))
+        f.save('flow_file/{}/{}.xls'.format(user_name, pipe_id))
 
 cursor.close()
 

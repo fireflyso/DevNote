@@ -15,7 +15,7 @@ logger = utils_logger.get_logger('flow', 'INFO')
 
 def get_pipe_list():
     pipe_list = []
-    with open("public_pipe.out") as file:
+    with open("all_pipe.out") as file:
         for line in file:
             pipe_list.append(line.replace('\n', ''))
     return pipe_list
@@ -147,6 +147,7 @@ def get_real_flow(res):
         value = out_bps if out_bps >= in_bps else in_bps
         month_95_info[start_time] = round(value / 1024 / 1024, 2)
         start_time += relativedelta(months=1)
+        breakpoint()
 
     return month_95_info
 
@@ -229,8 +230,9 @@ if __name__ == '__main__':
     sheet_row = 0
     default_style = set_style('Times New Roman', 220, True)
     customer_flow_dict = defaultdict(int)
-    for pipe_id in pipe_list:
+    for pipe_id in pipe_list[:1]:
         try:
+            pipe_id = 'ed3977c4-d57f-11eb-af9f-ea07a495bb82'
             check_count += 1
             start_time = datetime.strptime('2022-07-01 00:00:00', '%Y-%m-%d %H:%M:%S')
             end_time = datetime.strptime('2023-07-01 00:00:00', '%Y-%m-%d %H:%M:%S')
@@ -241,6 +243,7 @@ if __name__ == '__main__':
                 continue
             old_flow_info = get_old_flow(flow_res)
             real_flow_info = get_real_flow(flow_res)
+            breakpoint()
             # print(old_flow_info)
             # print(real_flow_info)
 

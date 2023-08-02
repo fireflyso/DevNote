@@ -1,7 +1,6 @@
 # -- coding: utf-8 --
 # @Time : 2023/7/22 11:19
 # @Author : xulu.liu
-import xlwt
 import pymysql
 
 db = pymysql.connect(
@@ -19,7 +18,7 @@ with open("temp.out") as file:
     for line in file:
         pipe_list.append(line.replace('\n', ''))
 
-sql = "select id from cloud_pipe where type = 'public' and id in {};".format(tuple(pipe_list))
+sql = "select id from cloud_pipe where id in {};".format(tuple(pipe_list))
 _ = cursor.execute(sql)
 res = cursor.fetchall()
 for r in res:

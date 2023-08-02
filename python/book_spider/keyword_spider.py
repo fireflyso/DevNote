@@ -44,4 +44,5 @@ with open(file_name, 'w+') as f1:
             print('  --- 请求失败：{}'.format(target_url))
 
 os.system("scp {} root@alist.liuxulu.top:/data/book".format(file_name))
-os.system("rm -rf {}".format(file_name))
+
+

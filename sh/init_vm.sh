@@ -65,6 +65,7 @@ echo "--- 3. 安装Nginx ---"
 docker pull nginx:latest
 mkdir -vp /data/nginx
 cat > /data/nginx/host.conf <<EOF
+
 server {
         listen       80;
         server_name  *.liuxulu.top;
@@ -75,10 +76,13 @@ server {
 
         location / {
             if ($domain ~* "alist") {
-               proxy_pass http://liuxulu.top:5244;      #域名中有alist，转发到5244端口
+            proxy_pass http://alist.liuxulu.top:5244;      #域名中有alist，转发到5244端口
             }
             if ($domain ~* "bit") {
-               proxy_pass http://liuxulu.top:8888;      #域名中有bit，转发到8888端口
+            proxy_pass http://bit.liuxulu.top:8888;      #域名中有bit，转发到8888端口
+            }
+            if ($domain ~* "blog") {
+            proxy_pass http://blog.liuxulu.top:8088;      #域名中有bit，转发到8888端口
             }
 
             tcp_nodelay     on;
@@ -90,7 +94,20 @@ server {
             root   html;
             index  index.html index.htm;            #默认情况
         }
+        error_log /var/log/error.log debug;
+        # log_format myFormat '$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式
+        # access_log /var/log/access.log myFormat;
+}
+
+server{
+        listen    8088;     # 端口
+        root /data/blog_page;   # 静态页面路径，要和上面git仓库配置路径对应上
+        server_name blog.liuxulu.top;   # 这个好像没啥用
+        location /{
+        }
+        error_log /var/log/blog-error.log debug;
+        # log_format myFormat '$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式
+        # access_log /var/log/blog-access.log myFormat;
 }
 EOF
-docker run -d --net=host -v /data/nginx/:/etc/nginx/conf.d/ --name nginx nginx
 docker run -d --net=host -v /data/nginx/:/etc/nginx/conf.d/ -v /data/blog_page:/data/blog_page --name nginx nginx
