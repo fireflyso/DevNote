@@ -1,9 +1,7 @@
-
-
-
 server {
         listen       80;
         server_name  *.liuxulu.top;
+        client_max_body_size    10000m;
 
         if ($http_host ~* "^(.*?)\.liuxulu\.top$") {    #正则表达式
                 set $domain $1;                     #设置变量
@@ -29,17 +27,17 @@ server {
             root   html;
             index  index.html index.htm;            #默认情况
         }
-        error_log log/error.log debug;
-        log_format myFormat '$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式
-        access_log log/access.log myFormat;
+        error_log /var/log/error.log debug;
 }
 
 server{
         listen    8088;     # 端口
-        root /home/git/blog_page;   # 静态页面路径，要和上面git仓库配置路径对应上
+        root /data/blog_page;   # 静态页面路径，要和上面git仓库配置路径对应上
         server_name blog.liuxulu.top;   # 这个好像没啥用
         location /{
         }
-        access_log /var/logs/blog-access.log combined;
+        error_log /var/log/blog-error.log debug;
 }
+
+docker run -d --net=host -v /data/nginx/:/etc/nginx/conf.d/ -v /home/git/blog_page:/data/blog_page --name nginx nginx
 

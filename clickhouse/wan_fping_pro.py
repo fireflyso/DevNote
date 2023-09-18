@@ -56,3 +56,9 @@ client.execute("select * from wan_fping.fping_data_all where src_ip = toIPv4('16
 client.execute("SELECT sum(rows), formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts WHERE (database IN ('wan_fping')) AND (table IN ('fping_data_local'))")
 client.execute("SELECT sum(rows), formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts WHERE (database IN ('wan_fping')) AND (table IN ('mtr_route_local'))")
 client.execute("SELECT sum(rows), formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts WHERE (database IN ('wan_fping')) AND (table IN ('mtr_time_local'))")
+
+client.execute("SELECT sum(rows), formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts WHERE (database IN ('slb_monitor')) AND (table IN ('slb_monitor_data_local'))")
+
+client.execute("SHOW CREATE TABLE slb_monitor.slb_monitor_data_local")
+
+
