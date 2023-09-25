@@ -195,7 +195,7 @@ def delete_vpc_slb_rs_port():
     param = {}
     url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
     body = {
-        "RsPortIds": ["c63d54f0-53b4-11ee-9d9f-feb5ec439909"]
+        "RsPortIds": ["f72a1932-5624-11ee-9d9f-feb5ec439909"]
     }
     res = requests.post(url, json=body)
     result = json.loads(res.content)
@@ -203,12 +203,12 @@ def delete_vpc_slb_rs_port():
 
 
 def create_vpc_slb_rs_port():
-    action = "QueryVpcSLBRsPort"
+    action = "CreateVpcSLBRsPort"
     method = "POST"
     param = {}
     url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
     body = {
-        "ListenId": "ab24bf50-53b4-11ee-9d9f-feb5ec439909",
+        "ListenId": "bd09e67e-5624-11ee-9d9f-feb5ec439909",
         "RsList": [
             {
                 "VmId": "",
@@ -227,15 +227,15 @@ def create_vpc_slb_rs_port():
 
 
 def create_vpc_slb_listen():
-    action = "QueryVpcSLBRsPort"
+    action = "CreateVpcSLBListen"
     method = "POST"
     param = {}
     url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
     body = {
-        "SlbId": "1963F28E-3Fc8-11Ee-Baf3-162664D58161",
+        "SlbId": "40fb6312-511c-11ee-99be-8e09f8677b8d",
         "ListenName": "新建监听",
-        "Vip": "140.210.70.136",
-        "VipId": "0Ae70172-3Fca-11Ee-Baf3-162664D58161",
+        "Vip": "114.112.38.27",
+        "VipId": "91fb5c0a-53b4-11ee-9d9f-feb5ec439909",
         "VipType": "wan_eip",
         "ListenProtocol": "TCP",
         "ListenPort": 8000,
@@ -261,24 +261,25 @@ def create_vpc_slb_listen():
 
 def query_vpc_slb_listen():
     action = "QueryVpcSLBListen"
-    method = "GET"
-    param = {
+    method = "POST"
+    param = {}
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
+    body = {
         "ListenId": "ab24bf50-53b4-11ee-9d9f-feb5ec439909"
     }
-    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param)
-    res = requests.get(url)
-    result = json.loads(res.text)
+    res = requests.post(url, json=body)
+    result = json.loads(res.content)
     return result
 
 
 def update_vpc_slb_listen():
-    action = "QueryVpcSLBRsPort"
+    action = "UpdateVpcSLBListen"
     method = "POST"
     param = {}
     url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
     body = {
         "SlbId": "1963F28E-3Fc8-11Ee-Baf3-162664D58161",
-        "ListenId": "2E2C2281-512D-11Ee-9Ee3-D3E8Ee1C0957",
+        "ListenId": "ab24bf50-53b4-11ee-9d9f-feb5ec439909",
         "ListenName": "更新监听Test",
         "AclId": "",
         "ListenTimeout": 10,
@@ -301,12 +302,51 @@ def update_vpc_slb_listen():
 
 
 def delete_vpc_slb_listen():
-    action = "QueryVpcSLBRsPort"
+    action = "DeleteVpcSLBListen"
     method = "POST"
     param = {}
     url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
     body = {
-        "ListenIds": ["b56413c0-511c-11ee-ac10-7c10c9b7d22b"]
+        "ListenIds": ["90993982-5624-11ee-9d9f-feb5ec439909"]
+    }
+    res = requests.post(url, json=body)
+    result = json.loads(res.content)
+    return result
+
+
+def vpc_slb_listen_monitor():
+    action = "QueryVpcSlbListenMonitor"
+    method = "POST"
+    param = {}
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
+    body = {
+        "ListenId": "bd09e67e-5624-11ee-9d9f-feb5ec439909"
+    }
+    res = requests.post(url, json=body)
+    result = json.loads(res.content)
+    return result
+
+
+def bandwidth_flow():
+    action = "QueryWanFlow"
+    method = "POST"
+    param = {}
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
+    body = {
+        "ResourceId": "84280f2e-53b4-11ee-9d9f-feb5ec439909"
+    }
+    res = requests.post(url, json=body)
+    result = json.loads(res.content)
+    return result
+
+
+def vpc_slb_monitor():
+    action = "DescribeVpcSlbMonitor"
+    method = "POST"
+    param = {}
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
+    body = {
+        "SlbId": "40fb6312-511c-11ee-99be-8e09f8677b8d"
     }
     res = requests.post(url, json=body)
     result = json.loads(res.content)
@@ -319,22 +359,29 @@ if __name__ == '__main__':
     # res = slb_detail()
     # a = batch_update_listen()
 
-    # vpc负载均衡监听服务器端口信息查询
+    # vpc负载均衡监听服务器端口信息查询    done
     # res = query_vpc_slb_rs_port()
-    # vpc负载均衡监听批量修改服务器端口
+    # vpc负载均衡监听批量修改服务器端口    done
     # res = update_vpc_slb_rs_port()
-    # vpc负载均衡监听批量解绑服务器端口
+    # vpc负载均衡监听批量解绑服务器端口    done
     # res = delete_vpc_slb_rs_port()
-    # vpc负载均衡监听批量绑定服务器端口
-    # res = create_vpc_slb_rs_port()
+    # vpc负载均衡监听批量绑定服务器端口    done
+    res = create_vpc_slb_rs_port()
 
-    # 查询vpc负载均衡监听
-    res = query_vpc_slb_listen()
-    # 更新vpc负载均衡监听
+    # 查询vpc负载均衡监听               done
+    # res = query_vpc_slb_listen()
+    # 更新vpc负载均衡监听               done
     # res = update_vpc_slb_listen()
-    # 删除vpc负载均衡监听
+    # 删除vpc负载均衡监听               done
     # res = delete_vpc_slb_listen()
-    # 创建vpc负载均衡监听
+    # 创建vpc负载均衡监听               done
     # res = create_vpc_slb_listen()
+
+    # vpc slb实时监听告警查询接口
+    # res = vpc_slb_listen_monitor()
+    # 实时带宽查询接口
+    # res = bandwidth_flow()
+    # vpc slb实时告警查询接口
+    res = vpc_slb_monitor()
 
     print(json.dumps(res))

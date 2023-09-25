@@ -1,3 +1,5 @@
+import os
+
 import requests
 
 from lxml import etree
@@ -19,11 +21,11 @@ HEADERS = {
                   '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 }
 keyword = ''
-file_name = '极品家丁'
+file_name = '美杜莎'
 file_name = file_name if file_name else keyword
 with open('{}.txt'.format(file_name), 'w+') as f1:
-    num = 14347043
-    for i in range(10):
+    num = 14355113
+    for i in range(1):
         target_url = 'https://www.cool18.com/bbs4/index.php?app=forum&act=threadview&tid={}'.format(num)
         num += 1
         print('准备请求 : {}'.format(target_url))
@@ -36,3 +38,4 @@ with open('{}.txt'.format(file_name), 'w+') as f1:
         else:
             print('  --- 请求失败：{}'.format(target_url))
 
+os.system("scp {} root@alist.liuxulu.top:/data/book".format(file_name))

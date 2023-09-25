@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Time:    2022/4/25 11:13
-
 import base64
 import hmac
 import json
@@ -12,26 +9,26 @@ from hashlib import sha1
 
 import requests
 
-NETWORK_URL = 'http://cdsapi-gateway.gic.pre/openapi/vpc'
-# AK = "abc07d56422e11eea9798e96c407823e"
-# AccessKeySecret = "b9042f4c207d6b59fdcb9bc99f655928"
+AK = "abc07d56422e11eea9798e96c407823e"
+AccessKeySecret = "b9042f4c207d6b59fdcb9bc99f655928"
+NETWORK_URL = "http://cdsapi.capitalonline.net/vpc"
+
 AK = "3254353a425511eea9798e96c407823e"
 AccessKeySecret = "9102ca1c149ff4a923f2ab12a34e38fe"
 
-# AK = "38bc80ae369611eaabc00242ac110002"
-# AccessKeySecret = "808db82b32e28be06d1879ef0c635f9c"
 
-
+# NETWORK_URL = "http://cdsapi-gateway.gic.pre/openapi/vpc"
+# NETWORK_URL = "http://openapi.gic.test/vpc"
 def percentEncode(str):
     """将特殊转义字符替换"""
-    res = urllib.parse.quote(str.encode('utf-8').decode(sys.stdin.encoding).encode('utf8'), '')
-    res = res.replace('+', '%20')
-    res = res.replace('*', '%2A')
-    res = res.replace('%7E', '~')
+    res = urllib.parse.quote(str.encode("utf-8").decode(sys.stdin.encoding).encode("utf8"), "")
+    res = res.replace("+", "%20")
+    res = res.replace("*", "%2A")
+    res = res.replace("%7E", "~")
     return res
 
 
-def get_signature(action, ak, access_key_secret, method, url, param=None):
+def get_signature(action, ak, access_key_secret, method, url, param={}):
     """
     @params: action: 接口动作
     @params: ak: ak值
@@ -43,100 +40,43 @@ def get_signature(action, ak, access_key_secret, method, url, param=None):
     """
     timestamp = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     D = {
-        'Action': action,
-        'AccessKeyId': ak,
-        'SignatureMethod': 'HMAC-SHA1',
-        'SignatureNonce': str(uuid.uuid1()),
-        'SignatureVersion': "1.0",
+        "Action": action,
+        "AccessKeyId": ak,
+        "SignatureMethod": "HMAC-SHA1",
+        "SignatureNonce": str(uuid.uuid1()),
+        "SignatureVersion": "1.0",
         "Timestamp": timestamp,
-        'Version': '2019-08-08',
-        "CustomerId": "E104616",
-        "UserId": "630387"
+        "Version": "2019-08-08",
     }
     if param:
         D.update(param)
     sortedD = sorted(D.items(), key=lambda x: x[0])
-    canstring = ''
+    canstring = ""
     for k, v in sortedD:
-        canstring += '&' + percentEncode(k) + '=' + percentEncode(v)
-    stringToSign = method + '&%2F&' + percentEncode(canstring[1:])
-    key_bytes = bytes(access_key_secret, 'utf-8')  # Commonly 'latin-1' or 'utf-8'
-    data_bytes = bytes(stringToSign, 'utf-8')  # Assumes `data` is also a string.
+        canstring += "&" + percentEncode(k) + "=" + percentEncode(v)
+    stringToSign = method + "&%2F&" + percentEncode(canstring[1:])
+    key_bytes = bytes(access_key_secret, "utf-8")  # Commonly "latin-1" or "utf-8"
+    data_bytes = bytes(stringToSign, "utf-8")  # Assumes `data` is also a string.
     h = hmac.new(key_bytes, data_bytes, sha1)
     Signature = base64.encodebytes(h.digest()).strip()
-    D['Signature'] = Signature
-    url = url + '/?' + urllib.parse.urlencode(D)
+    D["Signature"] = Signature
+    url = url + "/?" + urllib.parse.urlencode(D)
     print(url)
     return url
 
-
-def scheme():
-    # NETWORK_URL = 'http://cdsapi.capitalonline.net/vpc'
-    NETWORK_URL = 'http://cdsapi-gateway.gic.pre/openapi/vpc'
-    action = 'VpcSlbBillingScheme'
-    method = "POST"
-    body = {
-        "AvailableZoneCode": "CN_Suqian_B",
-        "BillingMethod": "0",
-        "NetType": "wan"
-    }
-    AK = '38bc80ae369611eaabc00242ac110002'
-    AccessKeySecret = '808db82b32e28be06d1879ef0c635f9c'
-    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL)
-    res = requests.post(url, json=body)
-    result = json.loads(res.content)
-    return result
 
 
 def slb_detail():
     action = "DescribeVpcSlb"
     method = "GET"
     param = {
-        "SlbId": "f43d3228-55fb-11ee-8573-ca21895e3d63",
+        "SlbId": "c7dd1256-5066-11ee-b005-4acd0fbc45a5",
         "SlbName": ""
     }
     url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param)
     res = requests.get(url)
     result = json.loads(res.text)
     return result
-
-
-def batch_update_listen():
-    action = 'VpcSlbUpdateListen'
-    method = "POST"
-    param = {}
-    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
-    body = {
-        "SlbId": "8a87c54a-34d7-11ee-9d57-860f13187611",
-        "Platform": "eks",
-        "OperatorType": "full",
-        "UserId": "713094",
-        "CustomerId": "E020912",
-        "ListenList": [
-            {
-                "ListenIp": "140.210.70.141",
-                "ListenPort": 80,
-                "ListenProtocol": "TCP",
-                "Scheduler": "rr",
-                "ListenName": "监听测试11",
-                "Timeout": 10,
-                "RsList": [
-                    {
-                        "RsId": "ins-1f2c75dsd9mc40mb",
-                        "RsName": "rs-002",
-                        "RsType": "eks",
-                        "RsWanIp": "",
-                        "RsLanIp": "10.22.1.8",
-                        "RsPort": 80
-                    }
-                ]
-            }
-        ]
-    }
-    res = requests.post(url, json=body)
-    result = json.loads(res.content)
-    return result
-
 
 
 
@@ -146,7 +86,7 @@ def query_vpc_slb_rs_port():
     param = {}
     url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
     body = {
-        "ListenId": "ab24bf50-53b4-11ee-9d9f-feb5ec439909",
+        "ListenId": "e9e2f5da-5202-11ee-ada8-7ef2e53a0a4c",
         "Keyword": "",
         "Page": 1,
         "PageSize": 20
@@ -356,8 +296,7 @@ def vpc_slb_monitor():
     return result
 
 
-if __name__ == '__main__':
-    # a = scheme()
+if __name__ == "__main__":
     # res = slb_detail()
     # vpc负载均衡监听服务器端口信息查询    done
     # res = query_vpc_slb_rs_port()
@@ -385,5 +324,3 @@ if __name__ == '__main__':
     res = vpc_slb_monitor()
 
     print(json.dumps(res))
-
-
