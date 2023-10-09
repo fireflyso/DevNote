@@ -1,0 +1,98 @@
+2023-09-27 15:01:44,177 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 15:01:44,192 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58224), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:01:44,192 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d518760>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d518760> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 15:01:44,220 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d518760> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:01:44,221 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d518760> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:01:44,221 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d518760> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:01:44,221 [__init__] [INFO] - Created channel=1
+2023-09-27 15:01:52,494 [callback] [INFO] -  [x] Received 'data 0!'
+2023-09-27 15:01:53,497 [callback] [INFO] -  [x] Received 'data 1!'
+2023-09-27 15:01:54,501 [callback] [INFO] -  [x] Received 'data 2!'
+2023-09-27 15:01:55,504 [callback] [INFO] -  [x] Received 'data 3!'
+2023-09-27 15:01:56,508 [callback] [INFO] -  [x] Received 'data 4!'
+2023-09-27 15:01:57,515 [callback] [INFO] -  [x] Received 'data 5!'
+2023-09-27 15:01:58,517 [callback] [INFO] -  [x] Received 'data 6!'
+2023-09-27 15:01:59,522 [callback] [INFO] -  [x] Received 'data 7!'
+2023-09-27 15:02:00,532 [callback] [INFO] -  [x] Received 'data 8!'
+2023-09-27 15:02:01,534 [callback] [INFO] -  [x] Received 'data 9!'
+2023-09-27 15:02:02,537 [callback] [INFO] -  [x] Received 'data 10!'
+2023-09-27 15:02:03,551 [callback] [INFO] -  [x] Received 'data 11!'
+2023-09-27 15:02:04,550 [callback] [INFO] -  [x] Received 'data 12!'
+2023-09-27 15:02:05,591 [callback] [INFO] -  [x] Received 'data 13!'
+2023-09-27 15:02:06,560 [callback] [INFO] -  [x] Received 'data 14!'
+2023-09-27 15:02:32,157 [_initiate_abort] [INFO] - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=TimeoutError(60, 'Operation timed out'); <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58224)>
+2023-09-27 15:02:32,159 [_deactivate] [INFO] - Deactivating transport: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58224)>
+2023-09-27 15:02:32,160 [_on_stream_terminated] [INFO] - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=StreamLostError: ("Stream connection lost: TimeoutError(60, 'Operation timed out')",); pending-error=None
+2023-09-27 15:02:32,161 [_on_stream_terminated] [INFO] - Stack terminated due to StreamLostError: ("Stream connection lost: TimeoutError(60, 'Operation timed out')",)
+2023-09-27 15:02:32,162 [_close_and_finalize] [INFO] - Closing transport socket and unlinking: state=2; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58224)>
+2023-09-27 15:04:45,895 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 15:04:45,905 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58368), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:04:45,906 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10edbf760>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10edbf760> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 15:04:45,938 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10edbf760> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:04:45,939 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10edbf760> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:04:45,939 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10edbf760> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:04:45,940 [__init__] [INFO] - Created channel=1
+2023-09-27 15:05:49,946 [callback] [INFO] -  [x] Received 'data 0!'
+2023-09-27 15:05:50,952 [callback] [INFO] -  [x] Received 'data 1!'
+2023-09-27 15:05:51,958 [callback] [INFO] -  [x] Received 'data 2!'
+2023-09-27 15:05:52,962 [callback] [INFO] -  [x] Received 'data 3!'
+2023-09-27 15:05:53,971 [callback] [INFO] -  [x] Received 'data 4!'
+2023-09-27 15:05:54,977 [callback] [INFO] -  [x] Received 'data 5!'
+2023-09-27 15:05:55,982 [callback] [INFO] -  [x] Received 'data 6!'
+2023-09-27 15:05:56,993 [callback] [INFO] -  [x] Received 'data 7!'
+2023-09-27 15:05:57,994 [callback] [INFO] -  [x] Received 'data 8!'
+2023-09-27 15:05:58,999 [callback] [INFO] -  [x] Received 'data 9!'
+2023-09-27 15:06:00,003 [callback] [INFO] -  [x] Received 'data 10!'
+2023-09-27 15:06:01,009 [callback] [INFO] -  [x] Received 'data 11!'
+2023-09-27 15:06:02,014 [callback] [INFO] -  [x] Received 'data 12!'
+2023-09-27 15:06:03,024 [callback] [INFO] -  [x] Received 'data 13!'
+2023-09-27 15:06:04,031 [callback] [INFO] -  [x] Received 'data 14!'
+2023-09-27 15:06:05,034 [callback] [INFO] -  [x] Received 'data 15!'
+2023-09-27 15:06:06,039 [callback] [INFO] -  [x] Received 'data 16!'
+2023-09-27 15:06:07,050 [callback] [INFO] -  [x] Received 'data 17!'
+2023-09-27 15:06:08,052 [callback] [INFO] -  [x] Received 'data 18!'
+2023-09-27 15:06:09,056 [callback] [INFO] -  [x] Received 'data 19!'
+2023-09-27 15:06:28,682 [callback] [INFO] -  [x] Received 'data 0!'
+2023-09-27 15:06:29,690 [callback] [INFO] -  [x] Received 'data 1!'
+2023-09-27 15:06:30,693 [callback] [INFO] -  [x] Received 'data 2!'
+2023-09-27 15:06:31,700 [callback] [INFO] -  [x] Received 'data 3!'
+2023-09-27 15:06:32,747 [callback] [INFO] -  [x] Received 'data 4!'
+2023-09-27 15:06:33,711 [callback] [INFO] -  [x] Received 'data 5!'
+2023-09-27 15:06:48,785 [callback] [INFO] -  [x] Received 'data 6!'
+2023-09-27 15:06:48,786 [callback] [INFO] -  [x] Received 'data 7!'
+2023-09-27 15:06:48,786 [callback] [INFO] -  [x] Received 'data 8!'
+2023-09-27 15:06:48,786 [callback] [INFO] -  [x] Received 'data 9!'
+2023-09-27 15:06:48,786 [callback] [INFO] -  [x] Received 'data 10!'
+2023-09-27 15:06:48,787 [callback] [INFO] -  [x] Received 'data 11!'
+2023-09-27 15:06:48,787 [callback] [INFO] -  [x] Received 'data 12!'
+2023-09-27 15:06:48,787 [callback] [INFO] -  [x] Received 'data 13!'
+2023-09-27 15:06:48,787 [callback] [INFO] -  [x] Received 'data 14!'
+2023-09-27 15:06:48,787 [callback] [INFO] -  [x] Received 'data 15!'
+2023-09-27 15:06:48,787 [callback] [INFO] -  [x] Received 'data 16!'
+2023-09-27 15:06:48,787 [callback] [INFO] -  [x] Received 'data 17!'
+2023-09-27 15:06:48,788 [callback] [INFO] -  [x] Received 'data 18!'
+2023-09-27 15:06:48,788 [callback] [INFO] -  [x] Received 'data 19!'
+2023-09-27 15:07:30,763 [callback] [INFO] -  [x] Received 'data 0!'
+2023-09-27 15:07:31,770 [callback] [INFO] -  [x] Received 'data 1!'
+2023-09-27 15:07:32,773 [callback] [INFO] -  [x] Received 'data 2!'
+2023-09-27 15:07:33,778 [callback] [INFO] -  [x] Received 'data 3!'
+2023-09-27 15:07:34,782 [callback] [INFO] -  [x] Received 'data 4!'
+2023-09-27 15:07:35,786 [callback] [INFO] -  [x] Received 'data 5!'
+2023-09-27 15:07:36,788 [callback] [INFO] -  [x] Received 'data 6!'
+2023-09-27 15:07:37,882 [callback] [INFO] -  [x] Received 'data 7!'
+2023-09-27 15:07:38,798 [callback] [INFO] -  [x] Received 'data 8!'
+2023-09-27 15:07:39,803 [callback] [INFO] -  [x] Received 'data 9!'
+2023-09-27 15:07:40,807 [callback] [INFO] -  [x] Received 'data 10!'
+2023-09-27 15:07:41,813 [callback] [INFO] -  [x] Received 'data 11!'
+2023-09-27 15:07:42,820 [callback] [INFO] -  [x] Received 'data 12!'
+2023-09-27 15:07:43,825 [callback] [INFO] -  [x] Received 'data 13!'
+2023-09-27 15:08:00,776 [callback] [INFO] -  [x] Received 'data 14!'
+2023-09-27 15:08:00,777 [callback] [INFO] -  [x] Received 'data 15!'
+2023-09-27 15:08:00,777 [callback] [INFO] -  [x] Received 'data 16!'
+2023-09-27 15:08:00,777 [callback] [INFO] -  [x] Received 'data 17!'
+2023-09-27 15:08:00,777 [callback] [INFO] -  [x] Received 'data 18!'
+2023-09-27 15:08:00,777 [callback] [INFO] -  [x] Received 'data 19!'
+2023-09-27 15:22:24,302 [callback] [INFO] -  [x] Received 'data 0!'
+2023-09-27 15:22:34,305 [callback] [INFO] -  [x] Received 'data 1!'
+2023-09-27 15:22:44,311 [callback] [INFO] -  [x] Received 'data 2!'
+2023-09-27 15:22:50,802 [callback] [INFO] -  [x] Received 'data 0!'

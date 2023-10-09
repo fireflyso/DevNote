@@ -1,0 +1,46 @@
+2023-09-27 15:02:42,721 [_on_socket_writable] [ERROR] - _AsyncBaseTransport._produce() failed, aborting connection: error=BrokenPipeError(32, 'Broken pipe'); sock=<socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58231)>; Caller's stack:
+Traceback (most recent call last):
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 819, in _produce
+    num_bytes_sent = self._sigint_safe_send(self._sock,
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 861, in _sigint_safe_send
+    return sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 819, in _produce
+    num_bytes_sent = self._sigint_safe_send(self._sock,
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 861, in _sigint_safe_send
+    return sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2023-09-27 15:02:42,723 [_proto_connection_lost] [ERROR] - connection_lost: StreamLostError: ("Stream connection lost: BrokenPipeError(32, 'Broken pipe')",)
+2023-09-27 15:02:42,725 [_flush_output] [ERROR] - Unexpected connection close detected: StreamLostError: ("Stream connection lost: BrokenPipeError(32, 'Broken pipe')",)
+2023-09-27 15:23:20,802 [_on_socket_writable] [ERROR] - _AsyncBaseTransport._produce() failed, aborting connection: error=BrokenPipeError(32, 'Broken pipe'); sock=<socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 59367)>; Caller's stack:
+Traceback (most recent call last):
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 819, in _produce
+    num_bytes_sent = self._sigint_safe_send(self._sock,
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 861, in _sigint_safe_send
+    return sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+Traceback (most recent call last):
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 1103, in _on_socket_writable
+    self._produce()
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 819, in _produce
+    num_bytes_sent = self._sigint_safe_send(self._sock,
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 861, in _sigint_safe_send
+    return sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2023-09-27 15:23:20,806 [_proto_connection_lost] [ERROR] - connection_lost: StreamLostError: ("Stream connection lost: BrokenPipeError(32, 'Broken pipe')",)
+2023-09-27 15:23:20,808 [_flush_output] [ERROR] - Unexpected connection close detected: StreamLostError: ("Stream connection lost: BrokenPipeError(32, 'Broken pipe')",)

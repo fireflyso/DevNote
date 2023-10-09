@@ -1,0 +1,317 @@
+2023-09-27 14:59:56,547 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 14:59:56,555 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58117), raddr=('120.46.67.226', 5672)>
+2023-09-27 14:59:56,556 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d0cbd30>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d0cbd30> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 14:59:56,586 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d0cbd30> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 14:59:56,586 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d0cbd30> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 14:59:56,586 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d0cbd30> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 14:59:56,587 [__init__] [INFO] - Created channel=1
+2023-09-27 14:59:56,605 [<module>] [INFO] - push 0
+2023-09-27 14:59:57,610 [<module>] [INFO] - push 1
+2023-09-27 14:59:58,616 [<module>] [INFO] - push 2
+2023-09-27 14:59:59,621 [<module>] [INFO] - push 3
+2023-09-27 15:00:00,624 [<module>] [INFO] - push 4
+2023-09-27 15:00:01,630 [<module>] [INFO] - push 5
+2023-09-27 15:00:02,636 [<module>] [INFO] - push 6
+2023-09-27 15:00:03,640 [<module>] [INFO] - push 7
+2023-09-27 15:00:04,645 [<module>] [INFO] - push 8
+2023-09-27 15:00:05,657 [<module>] [INFO] - push 9
+2023-09-27 15:00:06,661 [<module>] [INFO] - push 10
+2023-09-27 15:00:07,667 [<module>] [INFO] - push 11
+2023-09-27 15:00:08,670 [<module>] [INFO] - push 12
+2023-09-27 15:00:09,674 [<module>] [INFO] - push 13
+2023-09-27 15:00:10,680 [<module>] [INFO] - push 14
+2023-09-27 15:00:11,685 [<module>] [INFO] - push 15
+2023-09-27 15:00:12,689 [<module>] [INFO] - push 16
+2023-09-27 15:00:13,694 [<module>] [INFO] - push 17
+2023-09-27 15:00:14,698 [<module>] [INFO] - push 18
+2023-09-27 15:00:15,702 [<module>] [INFO] - push 19
+2023-09-27 15:00:16,705 [<module>] [INFO] - push 20
+2023-09-27 15:00:17,709 [<module>] [INFO] - push 21
+2023-09-27 15:00:18,715 [<module>] [INFO] - push 22
+2023-09-27 15:00:19,719 [<module>] [INFO] - push 23
+2023-09-27 15:00:20,723 [<module>] [INFO] - push 24
+2023-09-27 15:00:21,728 [<module>] [INFO] - push 25
+2023-09-27 15:00:22,732 [<module>] [INFO] - push 26
+2023-09-27 15:00:23,737 [<module>] [INFO] - push 27
+2023-09-27 15:00:24,743 [<module>] [INFO] - push 28
+2023-09-27 15:00:25,748 [<module>] [INFO] - push 29
+2023-09-27 15:00:26,753 [<module>] [INFO] - push 30
+2023-09-27 15:00:27,758 [<module>] [INFO] - push 31
+2023-09-27 15:00:28,763 [<module>] [INFO] - push 32
+2023-09-27 15:00:29,766 [<module>] [INFO] - push 33
+2023-09-27 15:00:30,773 [<module>] [INFO] - push 34
+2023-09-27 15:00:31,778 [<module>] [INFO] - push 35
+2023-09-27 15:00:32,784 [<module>] [INFO] - push 36
+2023-09-27 15:00:33,789 [<module>] [INFO] - push 37
+2023-09-27 15:00:34,794 [<module>] [INFO] - push 38
+2023-09-27 15:00:35,799 [<module>] [INFO] - push 39
+2023-09-27 15:00:36,805 [<module>] [INFO] - push 40
+2023-09-27 15:00:37,810 [<module>] [INFO] - push 41
+2023-09-27 15:00:38,815 [<module>] [INFO] - push 42
+2023-09-27 15:00:39,821 [<module>] [INFO] - push 43
+2023-09-27 15:00:40,826 [<module>] [INFO] - push 44
+2023-09-27 15:00:41,831 [<module>] [INFO] - push 45
+2023-09-27 15:00:42,836 [<module>] [INFO] - push 46
+2023-09-27 15:00:43,841 [<module>] [INFO] - push 47
+2023-09-27 15:00:44,847 [<module>] [INFO] - push 48
+2023-09-27 15:00:45,853 [<module>] [INFO] - push 49
+2023-09-27 15:00:46,858 [<module>] [INFO] - push 50
+2023-09-27 15:00:47,864 [<module>] [INFO] - push 51
+2023-09-27 15:00:48,869 [<module>] [INFO] - push 52
+2023-09-27 15:00:49,875 [<module>] [INFO] - push 53
+2023-09-27 15:00:50,878 [<module>] [INFO] - push 54
+2023-09-27 15:00:51,883 [<module>] [INFO] - push 55
+2023-09-27 15:00:52,888 [<module>] [INFO] - push 56
+2023-09-27 15:00:53,895 [<module>] [INFO] - push 57
+2023-09-27 15:00:54,900 [<module>] [INFO] - push 58
+2023-09-27 15:00:55,907 [<module>] [INFO] - push 59
+2023-09-27 15:00:56,912 [<module>] [INFO] - push 60
+2023-09-27 15:00:57,917 [<module>] [INFO] - push 61
+2023-09-27 15:00:58,923 [<module>] [INFO] - push 62
+2023-09-27 15:00:59,928 [<module>] [INFO] - push 63
+2023-09-27 15:01:00,934 [<module>] [INFO] - push 64
+2023-09-27 15:01:01,939 [<module>] [INFO] - push 65
+2023-09-27 15:01:02,945 [<module>] [INFO] - push 66
+2023-09-27 15:01:03,952 [<module>] [INFO] - push 67
+2023-09-27 15:01:04,957 [<module>] [INFO] - push 68
+2023-09-27 15:01:05,961 [<module>] [INFO] - push 69
+2023-09-27 15:01:06,965 [<module>] [INFO] - push 70
+2023-09-27 15:01:07,967 [<module>] [INFO] - push 71
+2023-09-27 15:01:08,979 [<module>] [INFO] - push 72
+2023-09-27 15:01:09,984 [<module>] [INFO] - push 73
+2023-09-27 15:01:10,989 [<module>] [INFO] - push 74
+2023-09-27 15:01:11,994 [<module>] [INFO] - push 75
+2023-09-27 15:01:12,999 [<module>] [INFO] - push 76
+2023-09-27 15:01:14,004 [<module>] [INFO] - push 77
+2023-09-27 15:01:15,008 [<module>] [INFO] - push 78
+2023-09-27 15:01:16,010 [<module>] [INFO] - push 79
+2023-09-27 15:01:17,016 [<module>] [INFO] - push 80
+2023-09-27 15:01:18,021 [<module>] [INFO] - push 81
+2023-09-27 15:01:19,026 [<module>] [INFO] - push 82
+2023-09-27 15:01:20,030 [<module>] [INFO] - push 83
+2023-09-27 15:01:21,035 [<module>] [INFO] - push 84
+2023-09-27 15:01:22,040 [<module>] [INFO] - push 85
+2023-09-27 15:01:23,044 [<module>] [INFO] - push 86
+2023-09-27 15:01:24,048 [<module>] [INFO] - push 87
+2023-09-27 15:01:25,054 [<module>] [INFO] - push 88
+2023-09-27 15:01:26,058 [<module>] [INFO] - push 89
+2023-09-27 15:01:27,064 [<module>] [INFO] - push 90
+2023-09-27 15:01:28,070 [<module>] [INFO] - push 91
+2023-09-27 15:01:29,075 [<module>] [INFO] - push 92
+2023-09-27 15:01:30,079 [<module>] [INFO] - push 93
+2023-09-27 15:01:31,085 [<module>] [INFO] - push 94
+2023-09-27 15:01:32,090 [<module>] [INFO] - push 95
+2023-09-27 15:01:33,097 [<module>] [INFO] - push 96
+2023-09-27 15:01:34,102 [<module>] [INFO] - push 97
+2023-09-27 15:01:35,106 [<module>] [INFO] - push 98
+2023-09-27 15:01:36,110 [<module>] [INFO] - push 99
+2023-09-27 15:01:37,113 [close] [INFO] - Closing connection (200): Normal shutdown
+2023-09-27 15:01:37,113 [close] [INFO] - Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d0cbd30> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>>
+2023-09-27 15:01:37,124 [_on_closeok] [INFO] - Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10d0cbd30> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>>
+2023-09-27 15:01:37,125 [close] [INFO] - Closing connection (200): 'Normal shutdown'
+2023-09-27 15:01:37,137 [abort] [INFO] - Aborting transport connection: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58117), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:01:37,137 [_initiate_abort] [INFO] - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58117), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:01:37,138 [_deactivate] [INFO] - Deactivating transport: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58117), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:01:37,138 [_on_stream_terminated] [INFO] - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2023-09-27 15:01:37,138 [_on_stream_terminated] [INFO] - Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2023-09-27 15:01:37,139 [_close_and_finalize] [INFO] - Closing transport socket and unlinking: state=3; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58117), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:01:37,139 [_flush_output] [INFO] - User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2023-09-27 15:01:52,391 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 15:01:52,403 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58231), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:01:52,404 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x108e52940>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x108e52940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 15:01:52,455 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x108e52940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:01:52,456 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x108e52940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:01:52,456 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x108e52940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:01:52,457 [__init__] [INFO] - Created channel=1
+2023-09-27 15:01:52,482 [<module>] [INFO] - push 0
+2023-09-27 15:01:53,488 [<module>] [INFO] - push 1
+2023-09-27 15:01:54,489 [<module>] [INFO] - push 2
+2023-09-27 15:01:55,494 [<module>] [INFO] - push 3
+2023-09-27 15:01:56,499 [<module>] [INFO] - push 4
+2023-09-27 15:01:57,504 [<module>] [INFO] - push 5
+2023-09-27 15:01:58,508 [<module>] [INFO] - push 6
+2023-09-27 15:01:59,512 [<module>] [INFO] - push 7
+2023-09-27 15:02:00,518 [<module>] [INFO] - push 8
+2023-09-27 15:02:01,524 [<module>] [INFO] - push 9
+2023-09-27 15:02:02,528 [<module>] [INFO] - push 10
+2023-09-27 15:02:03,534 [<module>] [INFO] - push 11
+2023-09-27 15:02:04,539 [<module>] [INFO] - push 12
+2023-09-27 15:02:05,545 [<module>] [INFO] - push 13
+2023-09-27 15:02:06,550 [<module>] [INFO] - push 14
+2023-09-27 15:02:07,553 [<module>] [INFO] - push 15
+2023-09-27 15:02:08,558 [<module>] [INFO] - push 16
+2023-09-27 15:02:09,561 [<module>] [INFO] - push 17
+2023-09-27 15:02:10,565 [<module>] [INFO] - push 18
+2023-09-27 15:02:11,569 [<module>] [INFO] - push 19
+2023-09-27 15:02:12,574 [<module>] [INFO] - push 20
+2023-09-27 15:02:13,580 [<module>] [INFO] - push 21
+2023-09-27 15:02:14,583 [<module>] [INFO] - push 22
+2023-09-27 15:02:15,590 [<module>] [INFO] - push 23
+2023-09-27 15:02:16,594 [<module>] [INFO] - push 24
+2023-09-27 15:02:17,597 [<module>] [INFO] - push 25
+2023-09-27 15:02:18,601 [<module>] [INFO] - push 26
+2023-09-27 15:02:19,605 [<module>] [INFO] - push 27
+2023-09-27 15:02:20,609 [<module>] [INFO] - push 28
+2023-09-27 15:02:21,615 [<module>] [INFO] - push 29
+2023-09-27 15:02:22,619 [<module>] [INFO] - push 30
+2023-09-27 15:02:23,623 [<module>] [INFO] - push 31
+2023-09-27 15:02:24,624 [<module>] [INFO] - push 32
+2023-09-27 15:02:25,630 [<module>] [INFO] - push 33
+2023-09-27 15:02:26,635 [<module>] [INFO] - push 34
+2023-09-27 15:02:27,639 [<module>] [INFO] - push 35
+2023-09-27 15:02:28,644 [<module>] [INFO] - push 36
+2023-09-27 15:02:29,650 [<module>] [INFO] - push 37
+2023-09-27 15:02:30,654 [<module>] [INFO] - push 38
+2023-09-27 15:02:31,658 [<module>] [INFO] - push 39
+2023-09-27 15:02:32,665 [<module>] [INFO] - push 40
+2023-09-27 15:02:33,670 [<module>] [INFO] - push 41
+2023-09-27 15:02:34,675 [<module>] [INFO] - push 42
+2023-09-27 15:02:35,686 [<module>] [INFO] - push 43
+2023-09-27 15:02:36,691 [<module>] [INFO] - push 44
+2023-09-27 15:02:37,696 [<module>] [INFO] - push 45
+2023-09-27 15:02:38,701 [<module>] [INFO] - push 46
+2023-09-27 15:02:39,706 [<module>] [INFO] - push 47
+2023-09-27 15:02:40,711 [<module>] [INFO] - push 48
+2023-09-27 15:02:41,717 [<module>] [INFO] - push 49
+2023-09-27 15:02:42,722 [_initiate_abort] [INFO] - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=BrokenPipeError(32, 'Broken pipe'); <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58231)>
+2023-09-27 15:02:42,723 [_deactivate] [INFO] - Deactivating transport: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58231)>
+2023-09-27 15:02:42,724 [_on_stream_terminated] [INFO] - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=StreamLostError: ("Stream connection lost: BrokenPipeError(32, 'Broken pipe')",); pending-error=None
+2023-09-27 15:02:42,725 [_on_stream_terminated] [INFO] - Stack terminated due to StreamLostError: ("Stream connection lost: BrokenPipeError(32, 'Broken pipe')",)
+2023-09-27 15:02:42,725 [_close_and_finalize] [INFO] - Closing transport socket and unlinking: state=2; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58231)>
+2023-09-27 15:05:49,865 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 15:05:49,877 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58380), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:05:49,878 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x105df3940>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x105df3940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 15:05:49,910 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x105df3940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:05:49,911 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x105df3940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:05:49,911 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x105df3940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:05:49,912 [__init__] [INFO] - Created channel=1
+2023-09-27 15:05:49,935 [<module>] [INFO] - push 0
+2023-09-27 15:05:50,941 [<module>] [INFO] - push 1
+2023-09-27 15:05:51,947 [<module>] [INFO] - push 2
+2023-09-27 15:05:52,953 [<module>] [INFO] - push 3
+2023-09-27 15:05:53,960 [<module>] [INFO] - push 4
+2023-09-27 15:05:54,967 [<module>] [INFO] - push 5
+2023-09-27 15:05:55,971 [<module>] [INFO] - push 6
+2023-09-27 15:05:56,976 [<module>] [INFO] - push 7
+2023-09-27 15:05:57,982 [<module>] [INFO] - push 8
+2023-09-27 15:05:58,989 [<module>] [INFO] - push 9
+2023-09-27 15:05:59,992 [<module>] [INFO] - push 10
+2023-09-27 15:06:00,998 [<module>] [INFO] - push 11
+2023-09-27 15:06:02,004 [<module>] [INFO] - push 12
+2023-09-27 15:06:03,012 [<module>] [INFO] - push 13
+2023-09-27 15:06:04,019 [<module>] [INFO] - push 14
+2023-09-27 15:06:05,023 [<module>] [INFO] - push 15
+2023-09-27 15:06:06,028 [<module>] [INFO] - push 16
+2023-09-27 15:06:07,033 [<module>] [INFO] - push 17
+2023-09-27 15:06:08,040 [<module>] [INFO] - push 18
+2023-09-27 15:06:09,046 [<module>] [INFO] - push 19
+2023-09-27 15:06:10,051 [close] [INFO] - Closing connection (200): Normal shutdown
+2023-09-27 15:06:10,052 [close] [INFO] - Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x105df3940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>>
+2023-09-27 15:06:10,062 [_on_closeok] [INFO] - Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x105df3940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>>
+2023-09-27 15:06:10,062 [close] [INFO] - Closing connection (200): 'Normal shutdown'
+2023-09-27 15:06:10,073 [abort] [INFO] - Aborting transport connection: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58380), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:10,073 [_initiate_abort] [INFO] - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58380), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:10,073 [_deactivate] [INFO] - Deactivating transport: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58380), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:10,074 [_on_stream_terminated] [INFO] - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2023-09-27 15:06:10,074 [_on_stream_terminated] [INFO] - Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2023-09-27 15:06:10,074 [_close_and_finalize] [INFO] - Closing transport socket and unlinking: state=3; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58380), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:10,074 [_flush_output] [INFO] - User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2023-09-27 15:06:28,596 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 15:06:28,607 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58385), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:28,609 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10c41f940>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10c41f940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 15:06:28,652 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10c41f940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:06:28,652 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10c41f940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:06:28,652 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10c41f940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:06:28,653 [__init__] [INFO] - Created channel=1
+2023-09-27 15:06:28,673 [<module>] [INFO] - push 0
+2023-09-27 15:06:29,679 [<module>] [INFO] - push 1
+2023-09-27 15:06:30,685 [<module>] [INFO] - push 2
+2023-09-27 15:06:31,690 [<module>] [INFO] - push 3
+2023-09-27 15:06:32,696 [<module>] [INFO] - push 4
+2023-09-27 15:06:33,701 [<module>] [INFO] - push 5
+2023-09-27 15:06:34,707 [<module>] [INFO] - push 6
+2023-09-27 15:06:35,712 [<module>] [INFO] - push 7
+2023-09-27 15:06:36,717 [<module>] [INFO] - push 8
+2023-09-27 15:06:37,721 [<module>] [INFO] - push 9
+2023-09-27 15:06:38,726 [<module>] [INFO] - push 10
+2023-09-27 15:06:39,729 [<module>] [INFO] - push 11
+2023-09-27 15:06:40,734 [<module>] [INFO] - push 12
+2023-09-27 15:06:41,739 [<module>] [INFO] - push 13
+2023-09-27 15:06:42,741 [<module>] [INFO] - push 14
+2023-09-27 15:06:43,747 [<module>] [INFO] - push 15
+2023-09-27 15:06:44,750 [<module>] [INFO] - push 16
+2023-09-27 15:06:45,753 [<module>] [INFO] - push 17
+2023-09-27 15:06:46,758 [<module>] [INFO] - push 18
+2023-09-27 15:06:47,764 [<module>] [INFO] - push 19
+2023-09-27 15:06:48,768 [close] [INFO] - Closing connection (200): Normal shutdown
+2023-09-27 15:06:48,769 [close] [INFO] - Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10c41f940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>>
+2023-09-27 15:06:48,783 [_on_closeok] [INFO] - Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10c41f940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>>
+2023-09-27 15:06:48,784 [close] [INFO] - Closing connection (200): 'Normal shutdown'
+2023-09-27 15:06:48,794 [abort] [INFO] - Aborting transport connection: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58385), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:48,795 [_initiate_abort] [INFO] - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58385), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:48,796 [_deactivate] [INFO] - Deactivating transport: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58385), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:48,797 [_on_stream_terminated] [INFO] - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2023-09-27 15:06:48,797 [_on_stream_terminated] [INFO] - Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2023-09-27 15:06:48,798 [_close_and_finalize] [INFO] - Closing transport socket and unlinking: state=3; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58385), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:06:48,799 [_flush_output] [INFO] - User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2023-09-27 15:07:30,687 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 15:07:30,697 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58438), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:07:30,698 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10bf87940>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10bf87940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 15:07:30,731 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10bf87940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:07:30,731 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10bf87940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:07:30,732 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10bf87940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:07:30,732 [__init__] [INFO] - Created channel=1
+2023-09-27 15:07:30,753 [<module>] [INFO] - push 0
+2023-09-27 15:07:31,758 [<module>] [INFO] - push 1
+2023-09-27 15:07:32,759 [<module>] [INFO] - push 2
+2023-09-27 15:07:33,763 [<module>] [INFO] - push 3
+2023-09-27 15:07:34,767 [<module>] [INFO] - push 4
+2023-09-27 15:07:35,773 [<module>] [INFO] - push 5
+2023-09-27 15:07:36,779 [<module>] [INFO] - push 6
+2023-09-27 15:07:37,784 [<module>] [INFO] - push 7
+2023-09-27 15:07:38,788 [<module>] [INFO] - push 8
+2023-09-27 15:07:39,793 [<module>] [INFO] - push 9
+2023-09-27 15:07:40,798 [<module>] [INFO] - push 10
+2023-09-27 15:07:41,804 [<module>] [INFO] - push 11
+2023-09-27 15:07:42,809 [<module>] [INFO] - push 12
+2023-09-27 15:07:43,814 [<module>] [INFO] - push 13
+2023-09-27 15:07:44,819 [<module>] [INFO] - push 14
+2023-09-27 15:07:45,825 [<module>] [INFO] - push 15
+2023-09-27 15:07:46,829 [<module>] [INFO] - push 16
+2023-09-27 15:07:47,833 [<module>] [INFO] - push 17
+2023-09-27 15:07:48,837 [<module>] [INFO] - push 18
+2023-09-27 15:07:49,842 [<module>] [INFO] - push 19
+2023-09-27 15:07:50,848 [close] [INFO] - Closing connection (200): Normal shutdown
+2023-09-27 15:07:50,848 [close] [INFO] - Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10bf87940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>>
+2023-09-27 15:08:00,776 [_on_closeok] [INFO] - Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10bf87940> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>>
+2023-09-27 15:08:00,777 [close] [INFO] - Closing connection (200): 'Normal shutdown'
+2023-09-27 15:08:00,788 [abort] [INFO] - Aborting transport connection: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58438), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:08:00,788 [_initiate_abort] [INFO] - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58438), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:08:00,789 [_deactivate] [INFO] - Deactivating transport: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58438), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:08:00,789 [_on_stream_terminated] [INFO] - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2023-09-27 15:08:00,789 [_on_stream_terminated] [INFO] - Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2023-09-27 15:08:00,790 [_close_and_finalize] [INFO] - Closing transport socket and unlinking: state=3; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58438), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:08:00,790 [_flush_output] [INFO] - User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2023-09-27 15:22:24,229 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 15:22:24,242 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 59364), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:22:24,243 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10a536a00>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10a536a00> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 15:22:24,271 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10a536a00> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:22:24,271 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10a536a00> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:22:24,271 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10a536a00> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:22:24,272 [__init__] [INFO] - Created channel=1
+2023-09-27 15:22:24,291 [<module>] [INFO] - push 0
+2023-09-27 15:22:34,297 [<module>] [INFO] - push 1
+2023-09-27 15:22:44,302 [<module>] [INFO] - push 2
+2023-09-27 15:22:50,729 [start] [INFO] - Pika version 1.3.2 connecting to ('120.46.67.226', 5672)
+2023-09-27 15:22:50,738 [_on_writable] [INFO] - Socket connected: <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 59367), raddr=('120.46.67.226', 5672)>
+2023-09-27 15:22:50,739 [_on_transport_establishment_done] [INFO] - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10186fa00>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10186fa00> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>).
+2023-09-27 15:22:50,770 [_report_completion_and_cleanup] [INFO] - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10186fa00> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:22:50,770 [_report_completion_and_cleanup] [INFO] - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10186fa00> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:22:50,770 [_create_connection] [INFO] - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x10186fa00> params=<ConnectionParameters host=120.46.67.226 port=5672 virtual_host=/ ssl=False>>
+2023-09-27 15:22:50,771 [__init__] [INFO] - Created channel=1
+2023-09-27 15:22:50,793 [<module>] [INFO] - push 0
+2023-09-27 15:23:20,805 [_initiate_abort] [INFO] - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=BrokenPipeError(32, 'Broken pipe'); <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 59367)>
+2023-09-27 15:23:20,806 [_deactivate] [INFO] - Deactivating transport: state=1; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 59367)>
+2023-09-27 15:23:20,807 [_on_stream_terminated] [INFO] - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=StreamLostError: ("Stream connection lost: BrokenPipeError(32, 'Broken pipe')",); pending-error=None
+2023-09-27 15:23:20,807 [_on_stream_terminated] [INFO] - Stack terminated due to StreamLostError: ("Stream connection lost: BrokenPipeError(32, 'Broken pipe')",)
+2023-09-27 15:23:20,808 [_close_and_finalize] [INFO] - Closing transport socket and unlinking: state=2; <socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 59367)>

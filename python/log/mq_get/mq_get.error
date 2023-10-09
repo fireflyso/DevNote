@@ -1,0 +1,9 @@
+2023-09-27 20:05:19,772 [_report_completion_and_cleanup] [ERROR] - AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: timeout("TCP connection attempt timed out: '120.46.84.57'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('120.46.84.57', 5672))")
+2023-09-27 20:05:19,773 [_start_new_cycle_async] [ERROR] - AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: timeout("TCP connection attempt timed out: '120.46.84.57'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('120.46.84.57', 5672))"); first exception - None.
+2023-09-27 20:05:19,774 [_report_completion_and_cleanup] [ERROR] - AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: timeout("TCP connection attempt timed out: '120.46.84.57'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('120.46.84.57', 5672))"); first exception - None
+2023-09-27 20:05:19,774 [_create_connection] [ERROR] - Connection workflow failed: AMQPConnectionWorkflowFailed: 1 exceptions in all; last exception - AMQPConnectorSocketConnectError: timeout("TCP connection attempt timed out: '120.46.84.57'/(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('120.46.84.57', 5672))"); first exception - None
+2023-09-27 20:05:19,774 [_create_connection] [ERROR] - Error in _create_connection().
+Traceback (most recent call last):
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError

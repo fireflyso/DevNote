@@ -1,0 +1,23 @@
+2023-09-27 15:02:32,156 [_on_socket_readable] [ERROR] - _AsyncBaseTransport._consume() failed, aborting connection: error=TimeoutError(60, 'Operation timed out'); sock=<socket.socket fd=10, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.131.81.73', 58224)>; Caller's stack:
+Traceback (most recent call last):
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 1047, in _on_socket_readable
+    self._consume()
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 791, in _consume
+    data = self._sigint_safe_recv(self._sock, self._MAX_RECV_BYTES)
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 846, in _sigint_safe_recv
+    return sock.recv(max_bytes)
+TimeoutError: [Errno 60] Operation timed out
+Traceback (most recent call last):
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 1047, in _on_socket_readable
+    self._consume()
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 791, in _consume
+    data = self._sigint_safe_recv(self._sock, self._MAX_RECV_BYTES)
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 79, in retry_sigint_wrap
+    return func(*args, **kwargs)
+  File "/Users/liuxulu/workspace/github/DevNote/venv/lib/python3.9/site-packages/pika/adapters/utils/io_services_utils.py", line 846, in _sigint_safe_recv
+    return sock.recv(max_bytes)
+TimeoutError: [Errno 60] Operation timed out
+2023-09-27 15:02:32,159 [_proto_connection_lost] [ERROR] - connection_lost: StreamLostError: ("Stream connection lost: TimeoutError(60, 'Operation timed out')",)
+2023-09-27 15:02:32,162 [_flush_output] [ERROR] - Unexpected connection close detected: StreamLostError: ("Stream connection lost: TimeoutError(60, 'Operation timed out')",)
