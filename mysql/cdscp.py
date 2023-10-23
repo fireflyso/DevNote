@@ -47,6 +47,6 @@ for r in res:
 
 
 
-sql = '''UPDATE cdscp.api_action_mapping SET name = '查询所有pipe资源带宽使用率', description = '查询所有pipe资源带宽使用率(未加入GPN的私网不进行统计)', return_mapping = '{"_type":"dict","Time":{"_type":"string","_name":"time"},"VdcInfo":{"_type":"list","_name":"vdc_info","VdcId":{"_type":"string","_name":"vdc_id"},"VdcName":{"_type":"string","_name":"vdc_name"},"PipeInfo":{"_type":"list","_name":"pipe_info","PipeId":{"_type":"string","_name":"pipe_id"},"PipeName":{"_type":"string","_name":"pipe_name"},"Type":{"_type":"string","_name":"type"},"Qos":{"_type":"int","_name":"qos"},"InFlow":{"_type":"float","_name":"in_flow"},"OutFlow":{"_type":"float","_name":"out_flow"},"InUtilization":{"_type":"string","_name":"in_utilization"},"OutUtilization":{"_type":"string","_name":"out_utilization"}}}}' WHERE id = 3297;'''
+sql = '''UPDATE cdscp.cloud_os_slb_listen SET is_valid = 0 WHERE id = 'd32b9aa4-5928-11ee-b646-8e1c22847458';'''
 cursor.execute(sql)
 db.commit()

@@ -12,9 +12,15 @@ import requests
 AK = "abc07d56422e11eea9798e96c407823e"
 AccessKeySecret = "b9042f4c207d6b59fdcb9bc99f655928"
 NETWORK_URL = "http://cdsapi.capitalonline.net/vpc"
+NETWORK_URL_BASE = "http://cdsapi.capitalonline.net/"
 
-AK = "3254353a425511eea9798e96c407823e"
-AccessKeySecret = "9102ca1c149ff4a923f2ab12a34e38fe"
+
+# AK = "3254353a425511eea9798e96c407823e"
+# AccessKeySecret = "9102ca1c149ff4a923f2ab12a34e38fe"
+
+# 线上测试账号
+AK = "38bc80ae369611eaabc00242ac110002"
+AccessKeySecret = "808db82b32e28be06d1879ef0c635f9c"
 
 
 # NETWORK_URL = "http://cdsapi-gateway.gic.pre/openapi/vpc"
@@ -296,6 +302,47 @@ def vpc_slb_monitor():
     return result
 
 
+def describe_vdc():
+    action = "DescribeVdc"
+    method = "GET"
+    param = {}
+    path = '{}/network'.format(NETWORK_URL_BASE)
+    url = get_signature(action, AK, AccessKeySecret, method, path, param)
+    res = requests.get(url)
+    result = json.loads(res.text)
+    return result
+
+
+def get_ip_info_by_segment():
+    action = "GetIpInfoBySegment"
+    method = "POST"
+    param = {}
+    path = '{}/ccs'.format(NETWORK_URL_BASE)
+    url = get_signature(action, AK, AccessKeySecret, method, path, param=param)
+    body = {
+        "Segment": "10.1.1.0/24",
+        "PrivateId": "2fc6cd96-5083-11ee-9fdc-a2c4633796fc"
+    }
+    res = requests.post(url, json=body)
+    result = json.loads(res.content)
+    return result
+
+
+def vdc_list():
+    NETWORK_URL = 'http://cdsapi.capitalonline.net/network'
+    # NETWORK_URL = 'http://cdsapi-gateway.gic.pre/openapi/network'
+    action = 'DescribeVdc'
+    method = "GET"
+    params = {}
+    body = {}
+    AK = '38bc80ae369611eaabc00242ac110002'
+    AccessKeySecret = '808db82b32e28be06d1879ef0c635f9c'
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=params)
+    res = requests.get(url, json=body)
+    result = json.loads(res.content)
+    return result
+
+
 if __name__ == "__main__":
     # res = slb_detail()
     # vpc负载均衡监听服务器端口信息查询    done
@@ -321,6 +368,9 @@ if __name__ == "__main__":
     # 实时带宽查询接口
     # res = bandwidth_flow()
     # vpc slb实时告警查询接口
-    res = vpc_slb_monitor()
+    # res = vpc_slb_monitor()
 
+    # vdc详情查看
+    # res = describe_vdc()
+    res = get_ip_info_by_segment()
     print(json.dumps(res))

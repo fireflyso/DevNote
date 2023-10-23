@@ -366,7 +366,7 @@ if __name__ == '__main__':
     # vpc负载均衡监听批量解绑服务器端口    done
     # res = delete_vpc_slb_rs_port()
     # vpc负载均衡监听批量绑定服务器端口    done
-    res = create_vpc_slb_rs_port()
+    # res = create_vpc_slb_rs_port()
 
     # 查询vpc负载均衡监听               done
     # res = query_vpc_slb_listen()

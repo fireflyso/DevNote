@@ -13,7 +13,7 @@ CK_PORT = 9000
 client = Client(host=CK_HOST, port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
 FLOW_TABLE_NAME = 'flow_data_local_new'
 
-start_time = '2023-09-29 19:00:00'
+start_time = '2023-10-18 20:15:00'
 
 test_pipe_id = '1f318dca-5eb3-11ee-94e1-660920dc2c55'
 meitu_pipe_id = '20929d02-5a1d-11ee-bb54-4e35d34f6fb5'

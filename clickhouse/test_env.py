@@ -2,22 +2,55 @@ from clickhouse_driver import Client
 import random
 from datetime import datetime, timedelta
 
-CK_HOST = "10.4.19.109,10.4.19.108,10.4.19.112"
+CK_HOST = "10.4.19.112"
 CK_USER = "default"
 CK_PASSWORD = ""
 CK_PORT = 9000
 client = Client(host=CK_HOST, port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
 
-client.execute("show databases")
-breakpoint()
-client.execute("use slb_monitor")
-client.execute("SELECT name FROM system.tables WHERE database = 'slb_monitor'")
-client.execute("SELECT name FROM system.tables")
-client.execute("CREATE TABLE slb_monitor.slb_monitor_data_all ( `vm_id` UUID comment 'DPVS机器ID', `listen_id` UUID comment '监听ID', `time` DateTime comment '采集时间', `active_conn` UInt32 comment '活跃连接数', `in_active_conn` UInt32 comment '非活跃连接数', `new_conn` UInt64 comment '新增连接数', `loss_conn` UInt64 comment '丢失连接数', `all_conn` UInt64 comment '累计连接数', `in_pkts` UInt64 comment '入向数据包数', `out_pkts` UInt64 comment '出向数据包数', `in_bits` UInt64 comment '入向带宽bit', `out_bits` UInt64 comment '出向带宽bit', `all_in_pkts` UInt64 comment '累计入向包数', `all_out_pkts` UInt64 comment '累计出向包数', `all_in_bytes` UInt64 comment '累计入向字节数（非bit）', `all_out_bytes` UInt64 comment '累计出向字节数（非bit）' ) ENGINE = Distributed('clickhouse_remote_servers', 'slb_monitor', 'slb_monitor_data_local', rand())")
-client.execute("CREATE TABLE slb_monitor.slb_monitor_data_local (`vm_id` UUID COMMENT 'DPVS机器ID', `listen_id` UUID COMMENT '监听ID', `time` DateTime COMMENT '采集时间', `active_conn` UInt32 COMMENT '活跃连接数', `in_active_conn` UInt32 COMMENT '非活跃连接数', `new_conn` UInt64 COMMENT '新增连接数', `loss_conn` UInt64 COMMENT '丢失连接数', `all_conn` UInt64 COMMENT '累计连接数', `in_pkts` UInt64 COMMENT '入向数据包数', `out_pkts` UInt64 COMMENT '出向数据包数', `in_bits` UInt64 COMMENT '入向带宽bit', `out_bits` UInt64 COMMENT '出向带宽bit', `all_in_pkts` UInt64 COMMENT '累计入向包数', `all_out_pkts` UInt64 COMMENT '累计出向包数', `all_in_bytes` UInt64 COMMENT '累计入向字节数（非bit）', `all_out_bytes` UInt64 COMMENT '累计出向字节数（非bit）') ENGINE = MergeTree PARTITION BY toYYYYMMDD(time) ORDER BY (vm_id, listen_id, time) SETTINGS index_granularity = 8192")
+# client.execute("show databases")
+# client.execute("select version()")
+# client.execute("select * from system.clusters")
+sql = """
+CREATE TABLE slb_monitor.slb_listen_ping_local
+(
+	`slb_id` UUID comment '负载均衡ID',
+	`listen_id` UUID comment '实际ping的监听ID',
+	`time` DateTime comment '采集时间',
+	`delay` Float32 comment '延时数据',
+	`loss` Float32 comment '丢包数据',
+	`slb_type` String comment 'vdc/vpc'
+)
+ENGINE = MergeTree
+PARTITION BY toYYYYMMDD(time)
+ORDER BY (slb_id, listen_id, time)
+SETTINGS index_granularity = 8192;
+"""
 
-res = client.execute("select toTimeZone(toStartOfFiveMinute(time), '') as time, sum(in_bps), sum(out_bps) from flow_snmp.flow_data_first_all where (pipe_id in ('005e8666-8381-11ea-bda2-dea2ec15d6d8') and time >= '2023-06-01 00:00:00' and time < '2023-07-01 00:00:00') or (pipe_id in ('0109dc00-c73d-11ea-8bf4-4a2e5f6563fe') and time >= '2023-06-01 00:00:00' and time < '2023-07-01 00:00:00') group by time order by time;")
-print(res)
+client.execute(sql)
+
+sql = """
+CREATE TABLE slb_monitor.slb_listen_ping_all
+(
+	`slb_id` UUID comment '负载均衡ID',
+	`listen_id` UUID comment '实际ping的监听ID',
+	`time` DateTime comment '采集时间',
+	`delay` Float32 comment '延时数据',
+	`loss` Float32 comment '丢包数据',
+	`slb_type` String comment 'vdc/vpc'
+)
+ENGINE = Distributed('cluster_3shards_1replicas', 'slb_monitor', 'slb_listen_ping_local', rand())
+"""
+client.execute(sql)
+
+# breakpoint()
+# client.execute("SELECT name FROM system.tables WHERE database = 'slb_monitor'")
+# client.execute("show create table slb_monitor.slb_listen_ping_local")
+# client.execute("CREATE TABLE slb_monitor.slb_monitor_data_all ( `vm_id` UUID comment 'DPVS机器ID', `listen_id` UUID comment '监听ID', `time` DateTime comment '采集时间', `active_conn` UInt32 comment '活跃连接数', `in_active_conn` UInt32 comment '非活跃连接数', `new_conn` UInt64 comment '新增连接数', `loss_conn` UInt64 comment '丢失连接数', `all_conn` UInt64 comment '累计连接数', `in_pkts` UInt64 comment '入向数据包数', `out_pkts` UInt64 comment '出向数据包数', `in_bits` UInt64 comment '入向带宽bit', `out_bits` UInt64 comment '出向带宽bit', `all_in_pkts` UInt64 comment '累计入向包数', `all_out_pkts` UInt64 comment '累计出向包数', `all_in_bytes` UInt64 comment '累计入向字节数（非bit）', `all_out_bytes` UInt64 comment '累计出向字节数（非bit）' ) ENGINE = Distributed('clickhouse_remote_servers', 'slb_monitor', 'slb_monitor_data_local', rand())")
+# client.execute("CREATE TABLE slb_monitor.slb_monitor_data_local (`vm_id` UUID COMMENT 'DPVS机器ID', `listen_id` UUID COMMENT '监听ID', `time` DateTime COMMENT '采集时间', `active_conn` UInt32 COMMENT '活跃连接数', `in_active_conn` UInt32 COMMENT '非活跃连接数', `new_conn` UInt64 COMMENT '新增连接数', `loss_conn` UInt64 COMMENT '丢失连接数', `all_conn` UInt64 COMMENT '累计连接数', `in_pkts` UInt64 COMMENT '入向数据包数', `out_pkts` UInt64 COMMENT '出向数据包数', `in_bits` UInt64 COMMENT '入向带宽bit', `out_bits` UInt64 COMMENT '出向带宽bit', `all_in_pkts` UInt64 COMMENT '累计入向包数', `all_out_pkts` UInt64 COMMENT '累计出向包数', `all_in_bytes` UInt64 COMMENT '累计入向字节数（非bit）', `all_out_bytes` UInt64 COMMENT '累计出向字节数（非bit）') ENGINE = MergeTree PARTITION BY toYYYYMMDD(time) ORDER BY (vm_id, listen_id, time) SETTINGS index_granularity = 8192")
+#
+# res = client.execute("select toTimeZone(toStartOfFiveMinute(time), '') as time, sum(in_bps), sum(out_bps) from flow_snmp.flow_data_first_all where (pipe_id in ('005e8666-8381-11ea-bda2-dea2ec15d6d8') and time >= '2023-06-01 00:00:00' and time < '2023-07-01 00:00:00') or (pipe_id in ('0109dc00-c73d-11ea-8bf4-4a2e5f6563fe') and time >= '2023-06-01 00:00:00' and time < '2023-07-01 00:00:00') group by time order by time;")
+# print(res)
 # print('read update')
 # res = client.execute("SELECT time, in_bps, out_bps FROM flow_snmp.flow_data where pipe_id  = '3a9a9ff8-b710-11ec-9bfc-8252cbfa8cce' and time >= '2022-04-13 17:45:01' and time < '2022-04-13 17:46:01' order by time")
 # print(res)

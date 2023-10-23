@@ -49,6 +49,9 @@ client.execute("select * from slb_monitor.slb_monitor_data_all")
 client.execute("select * from slb_monitor.slb_monitor_data_all where listen_id = '01e83bcc-e273-11ed-9a6f-ba2442b8b254' order by time desc limit 5;")
 client.execute("select time, sum(all_conn), sum(new_conn) from slb_monitor.slb_monitor_data_all where vm_id = '0d57ec54-d919-11ed-b45d-4eb1f1b241d9' group by time order by time desc limit 5;")
 
+client.execute("select * from slb_monitor.slb_monitor_data_all where time > '2023-10-12 11:00:30' and vm_id = '813bae80-eedb-11ed-8ea9-6ed0afc47729' order by time desc limit 3")
+client.execute("select * from slb_monitor.slb_monitor_data_all where time > '2023-10-12 11:00:30' order by time desc limit 3")
+
 
 client.execute("select * from wan_fping.fping_data_all where src_ip = IPv4Address('42.115.66.38') order by ping_time limit 1")
 client.execute("select * from wan_fping.fping_data_all where src_ip = toIPv4('164.52.42.110') order by ping_time limit 1")

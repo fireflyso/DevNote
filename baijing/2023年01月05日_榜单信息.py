@@ -10,7 +10,7 @@ HEADERS = {
                   '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 }
 
-logger = utils_logger.get_logger('baijing', 'INFO')
+logger = utils_logger.get_logger('py_log', 'INFO')
 
 free_dict = {}
 pay_dict = {}

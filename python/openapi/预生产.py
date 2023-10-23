@@ -18,8 +18,8 @@ NETWORK_URL = 'http://cdsapi-gateway.gic.pre/openapi/vpc'
 AK = "3254353a425511eea9798e96c407823e"
 AccessKeySecret = "9102ca1c149ff4a923f2ab12a34e38fe"
 
-# AK = "38bc80ae369611eaabc00242ac110002"
-# AccessKeySecret = "808db82b32e28be06d1879ef0c635f9c"
+AK = "3254353a425511eea9798e96c407823e"
+AccessKeySecret = "9102ca1c149ff4a923f2ab12a34e38fe"
 
 
 def percentEncode(str):
@@ -323,7 +323,7 @@ def vpc_slb_listen_monitor():
     param = {}
     url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param=param)
     body = {
-        "ListenId": "e9e2f5da-5202-11ee-ada8-7ef2e53a0a4c"
+        "ListenId": "168b76ce-579a-11ee-8f76-92fb8eaf2ec9"
     }
     res = requests.post(url, json=body)
     result = json.loads(res.content)
@@ -378,7 +378,8 @@ if __name__ == '__main__':
     # res = create_vpc_slb_listen()
 
     # vpc slb实时监听告警查询接口
-    # res = vpc_slb_listen_monitor()
+    res = vpc_slb_listen_monitor()
+    print(json.dumps(res))
     # 实时带宽查询接口
     # res = bandwidth_flow()
     # vpc slb实时告警查询接口
