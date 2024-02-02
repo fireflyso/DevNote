@@ -21,10 +21,10 @@ HEADERS = {
                   '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 }
 keyword = ''
-file_name = '美杜莎'
+file_name = '美女公寓'
 file_name = file_name if file_name else keyword
 with open('{}.txt'.format(file_name), 'w+') as f1:
-    num = 14355113
+    num = 14363648
     for i in range(1):
         target_url = 'https://www.cool18.com/bbs4/index.php?app=forum&act=threadview&tid={}'.format(num)
         num += 1

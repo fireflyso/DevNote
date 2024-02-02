@@ -37,7 +37,11 @@ gic_dir = {
 }
 
 end = datetime.datetime.now().replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-start = end.replace(month=end.month-1)
+if end.month == 1:
+    start = end.replace(year=end.year - 1, month=12)
+else:
+    start = end.replace(month=end.month - 1)
+
 print('开始清理历史数据文件')
 os.system("rm -rf avg_95.xls")
 

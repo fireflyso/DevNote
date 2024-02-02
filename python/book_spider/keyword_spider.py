@@ -21,9 +21,9 @@ HEADERS = {
                   '(KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'
 }
 base_url = 'https://www.cool18.com/bbs4/'
-keyword = ''
+keyword = '异界：精灵救世主'
 file_name = ''
-file_name = file_name if file_name else keyword
+file_name = file_name if file_name else keyword.replace(' ', '_')
 url = 'https://www.cool18.com/bbs4/index.php?act=threadsearch&app=forum&keywords={}&submit=栏目搜索'.format(keyword)
 print('准备请求 : {}'.format(url))
 html = requests.get(url=url, headers=HEADERS, timeout=5)
@@ -43,6 +43,6 @@ with open(file_name, 'w+') as f1:
         else:
             print('  --- 请求失败：{}'.format(target_url))
 
-os.system("scp {} root@alist.liuxulu.top:/data/book".format(file_name))
+os.system("mv {} /Users/liuxulu/alist/book".format(file_name))
 
 

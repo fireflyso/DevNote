@@ -47,6 +47,6 @@ for r in res:
 
 
 
-sql = '''UPDATE cdscp.cloud_os_slb_listen SET is_valid = 0 WHERE id = 'd32b9aa4-5928-11ee-b646-8e1c22847458';'''
+sql = ''''''
 cursor.execute(sql)
 db.commit()

@@ -3,13 +3,15 @@
 class Base:
     sort_arr = [23, 5, 8, 122, 32, 45, 72, 342, 2, 89, 12, 34, 11, 9, 77]
     sort_model = [23, 5, 8, 122, 32, 45, 72, 342, 2, 89, 12, 34, 11, 9, 77]
+    # sort_arr = [5, 4, 3, 2, 1]
+    # sort_model = [5, 4, 3, 2, 1]
 
     action_times = 0
 
     def __init__(self, name="玄学"):
         self.name = name
         print("    --- 开始进行 {} 排序 ---".format(self.name))
-        print("排序前的数组为: {}\n".format(self.sort_model))
+        print("排序前的数组为:\n{}".format(self.sort_arr))
 
     def less(self, a, b):
         self.action_times += 1

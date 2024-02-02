@@ -1,43 +1,95 @@
 server {
-        listen       80;
-        server_name  *.liuxulu.top;
-        client_max_body_size    10000m;
+    listen      443 ssl http2;
+    server_name  alist.liuxulu.top;
+    client_max_body_size    10000m;
 
-        if ($http_host ~* "^(.*?)\.liuxulu\.top$") {    #正则表达式
-                set $domain $1;                     #设置变量
-        }
+    ssl_certificate_key  /etc/nginx/conf.d/cert/key.pem; # key文件的路径
+	ssl_certificate     /etc/nginx/conf.d/cert/cert.pem;  # pem文件的路径
+	ssl_session_timeout 5m;
+	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_prefer_server_ciphers on;
 
-        location / {
-            if ($domain ~* "alist") {
-            proxy_pass http://alist.liuxulu.top:5244;      #域名中有alist，转发到5244端口
-            }
-            if ($domain ~* "bit") {
-            proxy_pass http://bit.liuxulu.top:8888;      #域名中有bit，转发到8888端口
-            }
-            if ($domain ~* "blog") {
-            proxy_pass http://blog.liuxulu.top:8088;      #域名中有bit，转发到8888端口
-            }
-
-            tcp_nodelay     on;
-            proxy_set_header Host            $host;
-            proxy_set_header X-Real-IP       $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            #以上三行，目的是将代理服务器收到的用户的信息传到真实服务器上
-
-            root   html;
-            index  index.html index.htm;            #默认情况
-        }
-        error_log /var/log/error.log debug;
+    location / {
+        proxy_pass http://10.0.0.1:5244;
+        tcp_nodelay     on;
+        proxy_set_header Host            $host;
+        proxy_set_header X-Real-IP       $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        #以上三行，目的是将代理服务器收到的用户的信息传到真实服务器上
+    }
+    error_log /var/log/error.log debug;
 }
 
-server{
-        listen    8088;     # 端口
-        root /data/blog_page;   # 静态页面路径，要和上面git仓库配置路径对应上
-        server_name blog.liuxulu.top;   # 这个好像没啥用
-        location /{
-        }
-        error_log /var/log/blog-error.log debug;
+server {
+    listen      443 ssl http2;
+    server_name  bit.liuxulu.top;
+
+    ssl_certificate_key  /etc/nginx/conf.d/cert/bit.key.pem; # key文件的路径
+	ssl_certificate     /etc/nginx/conf.d/cert/bit.cert.pem;  # pem文件的路径
+	ssl_session_timeout 5m;
+	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_prefer_server_ciphers on;
+
+    location / {
+        proxy_pass http://10.0.0.1:8888;
+        tcp_nodelay     on;
+        proxy_set_header Host            $host;
+        proxy_set_header X-Real-IP       $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        #以上三行，目的是将代理服务器收到的用户的信息传到真实服务器上
+    }
+    error_log /var/log/error.log debug;
 }
 
-docker run -d --net=host -v /data/nginx/:/etc/nginx/conf.d/ -v /home/git/blog_page:/data/blog_page --name nginx nginx
+server {
+    listen      443 ssl http2;
+    server_name  lan.liuxulu.top;
 
+    ssl_certificate_key  /etc/nginx/conf.d/cert/lan.key.pem; # key文件的路径
+	ssl_certificate     /etc/nginx/conf.d/cert/lan.cert.pem;  # pem文件的路径
+	ssl_session_timeout 5m;
+	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_prefer_server_ciphers on;
+
+    location / {
+        proxy_pass http://localhost:3443;
+        tcp_nodelay     on;
+        proxy_set_header Host            $host;
+        proxy_set_header X-Real-IP       $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        #以上三行，目的是将代理服务器收到的用户的信息传到真实服务器上
+    }
+    error_log /var/log/error.log debug;
+}
+
+server {
+    listen      443 ssl http2;
+    server_name  img.liuxulu.top;
+
+    ssl_certificate_key  /etc/nginx/conf.d/cert/img.key.pem; # key文件的路径
+	ssl_certificate     /etc/nginx/conf.d/cert/img.cert.pem;  # pem文件的路径
+	ssl_session_timeout 5m;
+	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_prefer_server_ciphers on;
+
+    location / {
+        proxy_pass http://10.0.0.2:2283;
+        tcp_nodelay     on;
+        proxy_set_header Host            $host;
+        proxy_set_header X-Real-IP       $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        #以上三行，目的是将代理服务器收到的用户的信息传到真实服务器上
+    }
+    error_log /var/log/error.log debug;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name *.liuxulu.top;
+    return 301 https://$http_host$request_uri;
+}

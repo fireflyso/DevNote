@@ -13,15 +13,8 @@ def get_public_redis_conn(host):
     )
 
 
-product_list = [5, 10, 11, 20, 22]
+old_redis = get_public_redis_conn('164.52.25.158')
 
-old_redis = get_public_redis_conn('106.3.133.42')
-new_redis = get_public_redis_conn('164.52.47.110')
+old_redis.set('test', '123')
+print(old_redis.get('test'))
 
-for pid in product_list:
-    COMPARE_FPING_TASK_SET = "fping_pro{}_task_set".format(pid)
-    compare_task = old_redis.smembers(COMPARE_FPING_TASK_SET)
-    pipeline = new_redis.pipeline()
-    for task in compare_task:
-        pipeline.sadd(COMPARE_FPING_TASK_SET, task)
-    pipeline.execute()

@@ -18,8 +18,8 @@ NETWORK_URL = 'http://cdsapi-gateway.gic.pre/openapi/vpc'
 AK = "3254353a425511eea9798e96c407823e"
 AccessKeySecret = "9102ca1c149ff4a923f2ab12a34e38fe"
 
-AK = "3254353a425511eea9798e96c407823e"
-AccessKeySecret = "9102ca1c149ff4a923f2ab12a34e38fe"
+AK = "38bc80ae369611eaabc00242ac110002"
+AccessKeySecret = "808db82b32e28be06d1879ef0c635f9c"
 
 
 def percentEncode(str):
@@ -356,6 +356,34 @@ def vpc_slb_monitor():
     return result
 
 
+def describe_nat_conn():
+    action = "DescribeNatConn"
+    method = "GET"
+    param = {
+        "NatId": "290a3276-7fa5-11ee-9732-e2630655970f",
+        "StartTime": "2023-11-15 16:31:00",
+        "EndTime": "2023-11-15 17:01:01"
+    }
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param)
+    res = requests.get(url)
+    result = json.loads(res.text)
+    return result
+
+
+def describe_nat_rule_conn():
+    action = "DescribeNatRuleConn"
+    method = "GET"
+    param = {
+        "RuleId": "3044fa56-7fa7-11ee-9732-e2630655970f",
+        "StartTime": "2023-11-15 16:31:00",
+        "EndTime": "2023-11-15 17:01:01"
+    }
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param)
+    res = requests.get(url)
+    result = json.loads(res.text)
+    return result
+
+
 if __name__ == '__main__':
     # a = scheme()
     # res = slb_detail()
@@ -378,12 +406,17 @@ if __name__ == '__main__':
     # res = create_vpc_slb_listen()
 
     # vpc slb实时监听告警查询接口
-    res = vpc_slb_listen_monitor()
-    print(json.dumps(res))
+    # res = vpc_slb_listen_monitor()
+    # print(json.dumps(res))
     # 实时带宽查询接口
     # res = bandwidth_flow()
     # vpc slb实时告警查询接口
-    res = vpc_slb_monitor()
+    # res = vpc_slb_monitor()
+
+    # nat连接数查询
+    # res = describe_nat_conn()
+    # nat rule连接数查询
+    res = describe_nat_rule_conn()
 
     print(json.dumps(res))
 

@@ -23,6 +23,10 @@ AK = "38bc80ae369611eaabc00242ac110002"
 AccessKeySecret = "808db82b32e28be06d1879ef0c635f9c"
 
 
+AK = "38bc80ae369611eaabc00242ac110002"
+AccessKeySecret = "808db82b32e28be06d1879ef0c635f9c"
+
+
 # NETWORK_URL = "http://cdsapi-gateway.gic.pre/openapi/vpc"
 # NETWORK_URL = "http://openapi.gic.test/vpc"
 def percentEncode(str):
@@ -343,6 +347,34 @@ def vdc_list():
     return result
 
 
+def describe_nat_conn():
+    action = "DescribeNatConn"
+    method = "GET"
+    param = {
+        "NatId": "290a3276-7fa5-11ee-9732-e2630655970f",
+        "StartTime": "2023-11-15 16:31:00",
+        "EndTime": "2023-11-15 17:01:01"
+    }
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param)
+    res = requests.get(url)
+    result = json.loads(res.text)
+    return result
+
+
+def describe_nat_rule_conn():
+    action = "DescribeNatRuleConn"
+    method = "GET"
+    param = {
+        "RuleId": "42adfb9c-7fad-11ee-a711-56418d35492d",
+        "StartTime": "2023-11-12 10:00:00",
+        "EndTime": "2023-11-16 15:20:00"
+    }
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param)
+    res = requests.get(url)
+    result = json.loads(res.text)
+    return result
+
+
 if __name__ == "__main__":
     # res = slb_detail()
     # vpc负载均衡监听服务器端口信息查询    done
@@ -372,5 +404,11 @@ if __name__ == "__main__":
 
     # vdc详情查看
     # res = describe_vdc()
-    res = get_ip_info_by_segment()
-    print(json.dumps(res))
+    # res = get_ip_info_by_segment()
+
+    # nat连接数查询
+    # res = describe_nat_conn()
+    # nat rule连接数查询
+    res = describe_nat_rule_conn()
+
+    print(res)

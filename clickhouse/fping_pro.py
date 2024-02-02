@@ -29,6 +29,7 @@ client.execute("SHOW CREATE f_ping.rtt_data_v3_20228")
 client.execute("SELECT * FROM system.clusters")
 # 查看表中数据条数以及空间占用情况
 client.execute("SELECT sum(rows), formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts WHERE (database IN ('f_ping')) AND (table IN ('rtt_data_v3_20229'))")
+client.execute("SELECT sum(rows), formatReadableSize(sum(data_uncompressed_bytes)), formatReadableSize(sum(data_compressed_bytes)) from system.parts WHERE (database IN ('slb_monitor')) AND (table IN ('rtt_data_v3_20229'))")
 
 
 

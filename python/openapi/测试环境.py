@@ -353,6 +353,34 @@ def vpc_slb_monitor():
     return result
 
 
+def describe_nat_conn():
+    action = "DescribeNatConn"
+    method = "GET"
+    param = {
+        "NatId": "ef27e06c-77cc-11ee-833a-28dfeb2d090f",
+        "StartTime": "2023-11-03 16:31:00",
+        "EndTime": "2023-11-03 17:01:01"
+    }
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param)
+    res = requests.get(url)
+    result = json.loads(res.text)
+    return result
+
+
+def describe_nat_rule_conn():
+    action = "DescribeNatRuleConn"
+    method = "GET"
+    param = {
+        "RuleId": "d1816a14-7898-11ee-90d1-da52db55ee96",
+        "StartTime": "2023-11-03 16:31:00",
+        "EndTime": "2023-11-03 17:01:01"
+    }
+    url = get_signature(action, AK, AccessKeySecret, method, NETWORK_URL, param)
+    res = requests.get(url)
+    result = json.loads(res.text)
+    return result
+
+
 if __name__ == '__main__':
     # 新增的接口
     # a = listen_clear()
@@ -382,6 +410,10 @@ if __name__ == '__main__':
     # 实时带宽查询接口
     # res = bandwidth_flow()
     # vpc slb实时告警查询接口
-    res = vpc_slb_monitor()
+    # res = vpc_slb_monitor()
 
-    print(json.dumps(res))
+    # nat连接数查询
+    # res = describe_nat_conn()
+    # nat rule连接数查询
+    res = describe_nat_rule_conn()
+    print(res)

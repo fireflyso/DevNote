@@ -8,40 +8,11 @@ CK_PASSWORD = ""
 CK_PORT = 9000
 client = Client(host=CK_HOST, port=CK_PORT, user=CK_USER, password=CK_PASSWORD)
 
-# client.execute("show databases")
+client.execute("show databases")
+client.execute("desc flow_snmp")
+breakpoint()
 # client.execute("select version()")
 # client.execute("select * from system.clusters")
-sql = """
-CREATE TABLE slb_monitor.slb_listen_ping_local
-(
-	`slb_id` UUID comment '负载均衡ID',
-	`listen_id` UUID comment '实际ping的监听ID',
-	`time` DateTime comment '采集时间',
-	`delay` Float32 comment '延时数据',
-	`loss` Float32 comment '丢包数据',
-	`slb_type` String comment 'vdc/vpc'
-)
-ENGINE = MergeTree
-PARTITION BY toYYYYMMDD(time)
-ORDER BY (slb_id, listen_id, time)
-SETTINGS index_granularity = 8192;
-"""
-
-client.execute(sql)
-
-sql = """
-CREATE TABLE slb_monitor.slb_listen_ping_all
-(
-	`slb_id` UUID comment '负载均衡ID',
-	`listen_id` UUID comment '实际ping的监听ID',
-	`time` DateTime comment '采集时间',
-	`delay` Float32 comment '延时数据',
-	`loss` Float32 comment '丢包数据',
-	`slb_type` String comment 'vdc/vpc'
-)
-ENGINE = Distributed('cluster_3shards_1replicas', 'slb_monitor', 'slb_listen_ping_local', rand())
-"""
-client.execute(sql)
 
 # breakpoint()
 # client.execute("SELECT name FROM system.tables WHERE database = 'slb_monitor'")
@@ -52,8 +23,8 @@ client.execute(sql)
 # res = client.execute("select toTimeZone(toStartOfFiveMinute(time), '') as time, sum(in_bps), sum(out_bps) from flow_snmp.flow_data_first_all where (pipe_id in ('005e8666-8381-11ea-bda2-dea2ec15d6d8') and time >= '2023-06-01 00:00:00' and time < '2023-07-01 00:00:00') or (pipe_id in ('0109dc00-c73d-11ea-8bf4-4a2e5f6563fe') and time >= '2023-06-01 00:00:00' and time < '2023-07-01 00:00:00') group by time order by time;")
 # print(res)
 # print('read update')
-# res = client.execute("SELECT time, in_bps, out_bps FROM flow_snmp.flow_data where pipe_id  = '3a9a9ff8-b710-11ec-9bfc-8252cbfa8cce' and time >= '2022-04-13 17:45:01' and time < '2022-04-13 17:46:01' order by time")
-# print(res)
+res = client.execute("SELECT * FROM slb_monitor.slb_monitor_data_all where time >= '2023-11-01 17:45:01'order by time limit 10")
+print(res)
 
 # start_time = datetime.strptime('2022-08-15 00:00:00', '%Y-%m-%d %H:%M:%S')
 # end_time = datetime.strptime('2022-08-20 00:00:00', '%Y-%m-%d %H:%M:%S')

@@ -17,8 +17,8 @@ logger = logging.getLogger(__name__)
 
 NETWORK_URL_BASE = "http://cdsapi.capitalonline.net/"
 # 线上测试账号
-AK = "38bc80ae369611eaabc00242ac110002"
-AccessKeySecret = "808db82b32e28be06d1879ef0c635f9c"
+AK = "60ddeed84d3011eea49236c0febc4cd1"
+AccessKeySecret = "54fd2f65cb0c36cbb8c1eaa8c1942253"
 
 
 # 企业微信机器人发送消息
@@ -113,8 +113,8 @@ def get_ip_info_by_segment():
     path = '{}/ccs'.format(NETWORK_URL_BASE)
     url = get_signature(action, AK, AccessKeySecret, method, path, param=param)
     body = {
-        "Segment": "10.241.195.0/24",
-        "PrivateId": "32a8f016-6cda-11ee-a844-3af21348c0ca"
+        "Segment": "10.240.1.0/24",
+        "PrivateId": "350d1114-7236-11ee-86a0-2afcdb52245c"
     }
     res = requests.post(url, json=body)
     result = json.loads(res.content)
